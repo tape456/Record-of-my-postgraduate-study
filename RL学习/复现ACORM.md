@@ -874,7 +874,11 @@ for idx in range(agent_embedding.shape[0]):
 python ./ACORM_QMIX/main.py --algorithm ACORM --env_name 3m --cluster_num 3 --max_train_steps 300000
 ```
 
+监控面板
+
+```
 ./memory_monitor.sh
+```
 
 
 
