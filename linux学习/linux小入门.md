@@ -593,6 +593,36 @@ sudo apt remove ntp -y
 
 2.选择Ubuntu版本，我们是`20.04` ,复制下图红框中的文本内容
 
+3.![image-20260312151856064](linux小入门-img/image-20260312151856064.png)
+
+4.备份原有文件，命令是：
+
+```bash
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+```
+
+5.编辑文件：
+
+```bash
+sudo vim /etc/apt/sources.list
+```
+
+将原有内容清空，粘贴刚刚在网站复制的文本，保存
+
+6.执行
+
+```bash
+sudo apt update
+```
+
+7.后续的apt命令将从清华大学网站下载内容
+
+![image-20260312152604826](linux小入门-img/image-20260312152604826.png)
+
+
+
+
+
 
 
 
@@ -653,7 +683,7 @@ vi编辑器其实就是我们在命令行下，去完成文件编辑的工作软
 
 
 
-
+### 后台运行程序
 
 
 
