@@ -1,5 +1,11 @@
 # python学习的小细节知识
 
+如果网络不好可以用国内网址，如下：
+
+```py
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 包名称
+```
+
 
 
 ## 为什么 `range(3)` 是 `0,1,2`？
