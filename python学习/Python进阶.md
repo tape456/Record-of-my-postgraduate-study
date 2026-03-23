@@ -285,3 +285,152 @@ print(c1.number)
 
 
 ## 魔法方法综合案例
+
+### 减肥案例
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 烤地瓜案例
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 定义类的三种格式
+
+```py
+# 第一种(常用)
+class 类名：
+	pass
+# 第二种
+class 类名():
+    pass
+# 第三种(常用)
+class 类名(父类名):
+	pass
+```
+
+
+
+![image-20260323100531578](Python进阶-img/image-20260323100531578.png)
+
+> 定义成私有方法就不会被继承了?
+>
+> 定义成私有也会继承下来，只能被名称修饰了，你调错了。
+
+![image-20260323100713164](Python进阶-img/image-20260323100713164.png)
+
+![image-20260323100801283](Python进阶-img/image-20260323100801283.png)
+
+
+
+![image-20260323100841276](Python进阶-img/image-20260323100841276.png)
+
+> 父类的私有属性和私有方法是不能继承的?
+>
+> 可以继承，Python中的私有是约定式的
+
+![image-20260323100942168](Python进阶-img/image-20260323100942168.png)
+
+### 多继承中的继承顺序
+
+![image-20260323101023567](Python进阶-img/image-20260323101023567.png)
+
+> 当一个类有多个父类时，默认使用**第一个父类**的**同名属性和方法**
+
+![image-20260323101129471](Python进阶-img/image-20260323101129471.png)
+
+> 查看(类的)引用顺序的两种途径,注意是:
+>
+> **类名**.属性名		# Prentice.\__mro__
+>
+> **类名**.方法名()	     # Prentice.mro()
+>
+> 注意是类名点出来的,不是对象名!!
+
+```py
+class Master:
+    def __init__(self):
+        self.kongfu= '古法配方'
+
+    def make_cake(self):
+        print(f"运用{self.kongfu}制作煎饼果子")
+
+class School:
+    def __init__(self):
+        self.kongfu="黑马配方"
+
+    def make_cake(self):
+        print(f"运用{self.kongfu}制作煎饼果子")
+
+class Prentice(School,Master):
+    pass
+
+xm=Prentice()
+# print(xm.kongfu)    # 访问属性：对象名.属性名
+xm.make_cake()          # 运用黑马配方制作煎饼果子
+
+class Master:
+    def __init__(self):
+        self.kongfu= '古法配方'
+
+    def make_cake(self):
+        print(f"运用{self.kongfu}制作煎饼果子")
+
+class School:
+    def __init__(self):
+        self.kongfu="黑马配方"
+
+    def make_cake(self):
+        print(f"运用{self.kongfu}制作煎饼果子")
+
+class Prentice(School,Master):
+    pass
+
+xm=Prentice()
+# print(xm.kongfu)    # 访问属性：对象名.属性名
+xm.make_cake()          # 运用黑马配方制作煎饼果子
+
+print(Prentice.__mro__) # (<class '__main__.Prentice'>, <class '__main__.School'>, <class '__main__.Master'>, <class 'object'>)
+print(Prentice.mro())   # (<class '__main__.Prentice'>, <class '__main__.School'>, <class '__main__.Master'>, <class 'object'>)
+
+```
+
+![image-20260323103327211](Python进阶-img/image-20260323103327211.png)
+
+![image-20260323103516509](Python进阶-img/image-20260323103516509.png)
+
+
+
+
+
+
+
+
+
+
+
