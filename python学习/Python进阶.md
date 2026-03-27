@@ -320,7 +320,7 @@ print(c1.number)
 
 
 
-## 定义类的三种格式
+## 定义类的三种格式p19
 
 ```py
 # 第一种(常用)
@@ -344,23 +344,61 @@ class 类名(父类名):
 
 ![image-20260323100713164](Python进阶-img/image-20260323100713164.png)
 
+## 继承入门p20、单继承p21
+
 ![image-20260323100801283](Python进阶-img/image-20260323100801283.png)
+
+
+
+![image-20260326213613985](Python进阶-img/image-20260326213613985.png)
+
+
+
+
+
+
+
+
+
+![fbeb6b5d0e5033ead1532725531dce38](Python进阶-img/fbeb6b5d0e5033ead1532725531dce38.jpg)
+
+
 
 
 
 ![image-20260323100841276](Python进阶-img/image-20260323100841276.png)
 
+![image-20260326214754572](Python进阶-img/image-20260326214754572.png)
+
+
+
 > 父类的私有属性和私有方法是不能继承的?
 >
 > 可以继承，Python中的私有是约定式的
 
+
+
+
+
+## 多继承p22
+
+>  从左往右就近原则
+
 ![image-20260323100942168](Python进阶-img/image-20260323100942168.png)
 
-### 多继承中的继承顺序
+
 
 ![image-20260323101023567](Python进阶-img/image-20260323101023567.png)
 
-> 当一个类有多个父类时，默认使用**第一个父类**的**同名属性和方法**
+当一个类有多个父类时，默认使用**第一个父类**的**同名属性和方法**
+
+## 多继承中的继承顺序p23
+
+> 扩展mro机制
+
+![image-20260326215304747](Python进阶-img/image-20260326215304747.png)
+
+
 
 ![image-20260323101129471](Python进阶-img/image-20260323101129471.png)
 
@@ -420,7 +458,9 @@ print(Prentice.mro())   # (<class '__main__.Prentice'>, <class '__main__.School'
 
 ```
 
-![image-20260323103327211](Python进阶-img/image-20260323103327211.png)
+> 徒弟类里没有konhfu和makecake，使用的话遵循就近原则
+
+![](Python进阶-img/image-20260323103327211.png)
 
 ![image-20260323103516509](Python进阶-img/image-20260323103516509.png)
 
@@ -428,21 +468,61 @@ print(Prentice.mro())   # (<class '__main__.Prentice'>, <class '__main__.School'
 
 
 
-### 覆盖同名属性和方法
-
-> 1. 父类名.父类方法名(self)	# 精准访问，想找哪个父类，就调哪个父类
-
-> 2. super().父类方法名()     # 只能访问最近的那个父类，没有就往后一直找方法
 
 
+## 子类重写父类功能(第二章p1)
+
+![image-20260326215755563](Python进阶-img/image-20260326215755563.png)
+
+> 和java不一样,java不能重写属性,python可以重写属性
 
 ![image-20260323203226454](Python进阶-img/image-20260323203226454.png)
 
 > self指的是对象，而调用的master方法，里面的self调到徒弟里面去了归徒弟管，所以要调父类的话,要构造方法把值改了，改成master的值
 
+![image-20260326215434777](Python进阶-img/image-20260326215434777.png)
+
+> 使用变量遵循就近原则，我自个类有，就拿来用，没有的话找近的父类，近的父类没有就往下继续找
+
+![image-20260326210223229](Python进阶-img/image-20260326210223229.png)
+
+>  那老师为啥报警告?
+>
+> 原因是因为:他告诉你,在父类中已经有对应的属性了,你的子类是不是还要去做这个事情啊,那就有点多此一举
+>
+> 警告归警告,但是执行依然没报错
+
+
+
+
+
+## 子类访问父类成员_方式1(p2)
+
+> 1. 父类名.父类方法名(self)	# 精准访问，想找哪个父类，就调哪个父类
+
+![image-20260326210541930](Python进阶-img/image-20260326210541930.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ![image-20260323204109845](Python进阶-img/image-20260323204109845.png)
+
+> 因为self本类当前对象的引用还是Prentice的init里的所以这里打印的是独创煎饼果子
 
 
 
@@ -458,9 +538,191 @@ self像指针，按指针理解简简单单
 
 
 
+![image-20260326211309271](Python进阶-img/image-20260326211309271.png)
+
+>  说的那么复杂，直接说**父类的初始值覆盖掉子类的初始值**就好了
+
+![image-20260326212531979](Python进阶-img/image-20260326212531979.png)
 
 
-1212
+
+![image-20260326212652515](Python进阶-img/image-20260326212652515.png)
+
+
+
+## 子类访问父类成员_方式2(p3)
+
+```py
+# 思路:
+#    1.父类名.父类函数名(self)   精准访问，想找哪个父类，就调哪个父类.
+#    2.super().父类函数名()    只能访问最近的那个父类，有就用，没有就往后继续查找
+```
+
+>  2.super().父类方法名()     # 只能访问最近的那个父类，没有就往后一直找方法
+
+![image-20260326212857829](Python进阶-img/image-20260326212857829.png)
+
+
+
+
+
+
+
+
+
+![93807e6867c45e2f7692619bb2f702dd](Python进阶-img/93807e6867c45e2f7692619bb2f702dd.jpg)
+
+
+
+
+
+![image-20260326220744402](Python进阶-img/image-20260326220744402.png)
+
+![image-20260326220814141](Python进阶-img/image-20260326220814141.png)
+
+>  我就想通过super小括号的方式,直接访问第二个或者第三个父类的成员,这个能不能做到?
+>
+> 做不到!
+>
+> super()它只能从前往后去初始化,前面没有才会往后找,前面有的情况下,不会找master
+
+
+
+![image-20260326221024234](Python进阶-img/image-20260326221024234.png)
+
+
+
+
+
+## 多层继承p4
+
+![image-20260326221349406](Python进阶-img/image-20260326221349406.png)
+
+
+
+![image-20260326221454180](Python进阶-img/image-20260326221454180.png)
+
+
+
+> self是本类当前对象的引用
+>
+> super代表父类
+
+
+
+
+
+## 封装
+
+
+
+
+
+![10caeb09a45fac8c90d266b4430f52b0](Python进阶-img/10caeb09a45fac8c90d266b4430f52b0.jpg)
+
+
+
+
+
+![34602ee7d5e62d3bdf69c3c5022e49f8](Python进阶-img/34602ee7d5e62d3bdf69c3c5022e49f8.jpg)
+
+
+
+
+
+![image-20260326221809918](Python进阶-img/image-20260326221809918.png)
+
+### 定义和获取私有属性
+
+![ca50741430d72f44a1a02deaa44a0015](Python进阶-img/ca50741430d72f44a1a02deaa44a0015.jpg)
+
+```py
+class Master:
+    def __init__(self):
+        self.kongfu="古法配方"
+
+    def make_cake(self):
+        print(f"使用{self.kongfu}制作煎饼果子")
+
+
+class School:
+    def __init__(self):
+        self.kongfu="黑马配方"
+
+    def make_cake(self):
+        print(f"运用{self.kongfu}制作煎饼果子")
+
+
+class Prentice(School,Master):
+    def __init__(self):
+        self.kongfu="独创配方"
+        self.__money=20000
+
+    def make_cake(self):
+        print(f"使用{self.kongfu}制作煎饼果子")
+
+    def get_money(self):
+        return self.__money
+
+    def set_money(self,money):
+        self.__money = money
+
+class Tusun(Prentice):
+    pass
+
+ts=Tusun()
+# print(ts.__money)       # 报错
+print(ts.get_money())       # 获取私有属性 20000
+ts.set_money(100)           # 设置私有属性
+print(ts.get_money())       # 获取更新后的私有属性 100
+```
+
+> **在类内写获取属性,设置属性值的**(留给外面访问的)**接口** 
+>
+> get_属性值(名)
+>
+> **在类内，私有属性和私有方法想怎么用就怎么用**
+
+![image-20260326222245315](Python进阶-img/image-20260326222245315.png)
+
+
+
+![7e2dbfcc76a54f5c4e60378e63c8764d](Python进阶-img/7e2dbfcc76a54f5c4e60378e63c8764d.jpg)
+
+```py
+class Master:
+    def __init__(self):
+        self.kongfu="古法配方"
+
+    def make_cake(self):
+        print(f"使用{self.kongfu}制作煎饼果子")
+
+
+class School:
+    def __init__(self):
+        self.kongfu="黑马配方"
+
+    def make_cake(self):
+        print(f"运用{self.kongfu}制作煎饼果子")
+
+
+class Prentice(School,Master):
+    def __init__(self):
+        self.kongfu="独创配方"
+
+    # 定义私有方法
+    def __make_cake(self):
+        print(f"使用{self.kongfu}制作煎饼果子")
+
+    def make(self):     # 类内,访问私有方法的接口
+        self.__make_cake()
+
+class Tusun(Prentice):
+    pass
+
+ts=Tusun()
+ts.make()   # 使用独创配方制作煎饼果子
+```
 
 
 
