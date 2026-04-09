@@ -1799,25 +1799,324 @@ client_socket.close()
 
 #### 进程带参数的任务
 
+![image-20260409202538151](Python进阶-img/image-20260409202538151.png)
+
+![image-20260409203356775](Python进阶-img/image-20260409203356775.png)
+
+>  导包可以直接在后面写time
+>
+> 主板的BIOS来设置，进程的资源分配
+
+![image-20260409203417385](Python进阶-img/image-20260409203417385.png)
+
+> 1，导包
+> 2，创建进程对象，关联目标函数，如果目标函数需要传参，就传个参
+> 3，启动
+>
+> 1.导包，2.编写目标函数，3.创建主进程和子进程，4.启动子进程
+
+![image-20260409203525922](Python进阶-img/image-20260409203525922.png)
+
+#### 获取进程的父进程的编号有一种方式
+
+![image-20260409203655683](Python进阶-img/image-20260409203655683.png)
+
+
+
+![image-20260409203730121](Python进阶-img/image-20260409203730121.png)
+
+> 进程编号的作用：找子进程和父进程之间关系的
+
+<img src="Python进阶-img/image-20260409203830453.png" alt="image-20260409203830453" style="zoom: 67%;" />
+
+> 获取父进程的编号getparentpid -> os.getppid()
+
+![image-20260409203945427](Python进阶-img/image-20260409203945427.png)
+
+![image-20260409204121952](Python进阶-img/image-20260409204121952.png)
+
+
+
+![image-20260409204155868](Python进阶-img/image-20260409204155868.png)
+
+> main函数不需要启动
+>
+> 因为一开始就启动了就进栈了
+>
+> main的父进程是 pycharm(pycharm的进程)
+
+> 结束pycharm的进程的时候，那你刚刚还在运行的代码不会运行完，会立马终止
+
+![image-20260409204314052](Python进阶-img/image-20260409204314052.png)
+
+> 23060是不是说明它的父进程都是main进程
+
+> 获取当前进程，两种方式  os.getpid()    multiprocessing.current_process().pid
+> 获取父进程，就一种方式 os.getppid()
+
+#### 进程的注意点
+
+![image-20260409204554051](Python进阶-img/image-20260409204554051.png)
+
+> 不懂，我们需要了解电脑cpu的进程线程吗，我们了解这些的作用是什么？
+>
+> 不了解进程线程 如何编程开发？
+
+<img src="Python进阶-img/image-20260409204629353.png" alt="image-20260409204629353" style="zoom:67%;" />
+
+
+
+<img src="Python进阶-img/image-20260409204656664.png" alt="image-20260409204656664" style="zoom:50%;" />
+
+![image-20260409204713217](Python进阶-img/image-20260409204713217.png)
+
+> 相当于在父进程的进程表里
+>
+> 因为进程是资源分配的基本单位 所以每个进程的资源是独立的
+
+![image-20260409204743405](Python进阶-img/image-20260409204743405.png)
+
+
+
+![image-20260409204812804](Python进阶-img/image-20260409204812804.png)
+
+
+
+![image-20260409204839833](Python进阶-img/image-20260409204839833.png)
+
+
+
+![image-20260409204901376](Python进阶-img/image-20260409204901376.png)
+
+> 说明数据是相互隔离的
+
+> 创建进程开始是会重新加载一次main外文件，所以print多打印了两次
+
+![image-20260409204943952](Python进阶-img/image-20260409204943952.png)
+
+> 全部再拷贝一份
+
+除了变量算资源，那方法函数算资源吗
+
+![image-20260409205041124](Python进阶-img/image-20260409205041124.png)
+
+> \# 全局代码！每个进程都会跑
+>
+> print(f"我是main外资源，看我执行了几次")
+
+三、怎么验证？
+
+给 print 加个进程名，一眼看懂：
+
+```py
+import multiprocessing
+import time
+
+# 全局代码！每个进程都会跑
+print(f"【{multiprocessing.current_process().name}】执行了全局代码")
+
+my_list = []
+
+def write_data():
+    for i in range(1, 6):
+        my_list.append(i)
+    print(f'write_data: {my_list}')
+
+def read_data():
+    time.sleep(3)
+    print(f'read_data: {my_list}')
+
+if __name__ == '__main__':
+    p1 = multiprocessing.Process(target=write_data, name="写进程")
+    p2 = multiprocessing.Process(target=read_data, name="读进程")
+    p1.start()
+    p2.start()
+```
+
+运行结果你会看到：
+
+```py
+【MainProcess】执行了全局代码
+【写进程】执行了全局代码
+【读进程】执行了全局代码
+```
+
+**完美对应 3 次！**
+
+------
+
+四、怎么让它只执行 1 次？
+
+把**全局代码放进 `if __name__ == '__main__':` 里面**！
+
+```py
+import multiprocessing
+import time
+
+my_list = []
+
+def write_data():
+    for i in range(1, 6):
+        my_list.append(i)
+    print(f'write_data: {my_list}')
+
+def read_data():
+    time.sleep(3)
+    print(f'read_data: {my_list}')
+
+# 只有主进程会进这里
+if __name__ == '__main__':
+    print('我是main内资源, 只执行1次')  # 现在只打印1次！
+
+    p1 = multiprocessing.Process(target=write_data)
+    p2 = multiprocessing.Process(target=read_data)
+    p1.start()
+    p2.start()
+```
+
+
+
+![image-20260409210036470](Python进阶-img/image-20260409210036470.png)
+
+
+
+<img src="Python进阶-img/image-20260409210147882.png" alt="image-20260409210147882" style="zoom:67%;" />
+
+
+
+<img src="Python进阶-img/image-20260409210842290.png" alt="image-20260409210842290" style="zoom:67%;" />
+
+
+
+![image-20260409211250353](Python进阶-img/image-20260409211250353.png)
+
+
+
+![image-20260409211314995](Python进阶-img/image-20260409211314995.png)
+
+
+
+> 举个例子，下课铃响了，老师还要挣扎一下，拖拖堂
+
+==daemon 守护==
+
+> 水晶爆了,
+>
+> 非守护进程嘎的时候,他的所有守护进程都得嘎
+
+![image-20260409211942281](Python进阶-img/image-20260409211942281.png)
+
+![image-20260409211958256](Python进阶-img/image-20260409211958256.png)
+
+![image-20260409212115601](Python进阶-img/image-20260409212115601.png)
+
+> 会在后面随机的一个时间,才会回收
+
+![image-20260409212931246](Python进阶-img/image-20260409212931246.png)
+
+![image-20260409212806131](Python进阶-img/image-20260409212806131.png)
+
+默认情况下,主进程
+
+> terminate的使用场景在哪? 
+>
+> 子进程卡死了或者不需要子进程陪着主进程到最后
+
+<img src="Python进阶-img/image-20260409213422817.png" alt="image-20260409213422817" style="zoom:50%;" />
+
+```py
+正在努力工作中...  ← 子进程在跑
+正在努力工作中...
+正在努力工作中...
+main进程结束       ← 【主进程代码跑完了，但主进程没退出！它在等子进程！】
+正在努力工作中...  ← 子进程继续跑
+正在努力工作中...
+正在努力工作中...
+正在努力工作中...
+正在努力工作中...
+正在努力工作中...
+正在努力工作中...
+
+进程已结束，退出代码为 0  ← 【子进程全部跑完 → 主进程才真正退出】
+```
+
+`print ('main 进程结束 ') ≠ 主进程退出！`
+
+- 主进程只是**把自己的代码执行完了**
+- 但它**会停在那里，一直等子进程**
+- 直到子进程把 10 次全部打印完，主进程才会真正结束
+
+这就是教材说的：
+
+**默认情况下，主进程会等待子进程执行结束再结束！**
+
+
+
 
 
 ### 多线程
 
+<img src="Python进阶-img/image-20260409213556382.png" alt="image-20260409213556382" style="zoom:50%;" />
+
+
+
+![image-20260409213646809](Python进阶-img/image-20260409213646809.png)
+
+> 每个进程都有一个 主线程栈
+
+![image-20260409214007011](Python进阶-img/image-20260409214007011.png)
+
+![image-20260409213950508](Python进阶-img/image-20260409213950508.png)
+
+![image-20260409214020778](Python进阶-img/image-20260409214020778.png)
+
+<img src="Python进阶-img/image-20260409214036169.png" alt="image-20260409214036169" style="zoom:67%;" />
+
+![image-20260409214026377](Python进阶-img/image-20260409214026377.png)
+
+
+
+![image-20260409214104249](Python进阶-img/image-20260409214104249.png)
+
+![image-20260409214141021](Python进阶-img/image-20260409214141021.png)
+
+![image-20260409214314427](Python进阶-img/image-20260409214314427.png)
+
+![image-20260409214450150](Python进阶-img/image-20260409214450150.png)
+
+>  你的线程只能去抢进程分配给你的这些资源诶
 
 
 
 
 
+#### 多线程完成任务
+
+![image-20260409214519044](Python进阶-img/image-20260409214519044.png)
+
+![image-20260409214557523](Python进阶-img/image-20260409214557523.png)
+
+![image-20260409214615810](Python进阶-img/image-20260409214615810.png)
+
+![image-20260409214628930](Python进阶-img/image-20260409214628930.png)
+
+> 一个开辟通道，一个干活的
 
 
 
+<img src="Python进阶-img/image-20260409215128060.png" alt="image-20260409215128060" style="zoom:50%;" />
+
+<img src="Python进阶-img/image-20260409215607283.png" alt="image-20260409215607283" style="zoom:67%;" />
 
 
 
+![image-20260409215925463](Python进阶-img/image-20260409215925463.png)
 
+![image-20260409215851846](Python进阶-img/image-20260409215851846.png)
 
+<img src="Python进阶-img/image-20260409220604191.png" alt="image-20260409220604191" style="zoom: 50%;" />
 
-
+![image-20260409220639618](Python进阶-img/image-20260409220639618.png)
 
 
 
