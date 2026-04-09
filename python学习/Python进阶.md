@@ -1765,6 +1765,26 @@ client_socket.close()
 
 <img src="Python进阶-img/image-20260409175711642.png" alt="image-20260409175711642" style="zoom:50%;" />
 
+<img src="Python进阶-img/image-20260409180155027.png" alt="image-20260409180155027" style="zoom:50%;" />
+
+
+
+
+
+#### 多进程完成多任务
+
+<img src="Python进阶-img/image-20260409180232150.png" alt="image-20260409180232150" style="zoom:33%;" />
+
+<img src="Python进阶-img/image-20260409180304177.png" alt="image-20260409180304177" style="zoom: 50%;" />
+
+
+
+![image-20260409180438063](Python进阶-img/image-20260409180438063.png)
+
+
+
+<img src="Python进阶-img/image-20260409180451647.png" alt="image-20260409180451647" style="zoom:50%;" />
+
 
 
 
