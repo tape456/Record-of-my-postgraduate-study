@@ -1785,15 +1785,29 @@ client_socket.close()
 
 <img src="Python进阶-img/image-20260409180451647.png" alt="image-20260409180451647" style="zoom:50%;" />
 
+> window中创建进程只能通过主模块进程创建，即使是主模块而非导入也需要加入if __name__进行判断
+
+![image-20260409182458821](Python进阶-img/image-20260409182458821.png)
+
+![image-20260409182517776](Python进阶-img/image-20260409182517776.png)
 
 
 
-
-
+> 谁是第一个都有可能,只是大概率是p1先开始
 
 
 
 ### 多线程
+
+
+
+
+
+
+
+
+
+
 
 
 
