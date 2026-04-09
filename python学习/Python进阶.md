@@ -1747,9 +1747,23 @@ client_socket.close()
 >
 > 前面说错了，线程是cpu调度的最小单位
 
+![image-20260409175247049](Python进阶-img/image-20260409175247049.png)
+
 ### 多进程
 
+<img src="Python进阶-img/image-20260409175345795.png" alt="image-20260409175345795" style="zoom:50%;" />
 
+
+
+<img src="Python进阶-img/image-20260409175605444.png" alt="image-20260409175605444" style="zoom: 50%;" />
+
+
+
+![image-20260409175653480](Python进阶-img/image-20260409175653480.png)
+
+
+
+<img src="Python进阶-img/image-20260409175711642.png" alt="image-20260409175711642" style="zoom:50%;" />
 
 
 
