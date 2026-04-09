@@ -1681,6 +1681,12 @@ client_socket.close()
 
 <img src="Python进阶-img/image-20260409171910660.png" alt="image-20260409171910660" style="zoom:50%;" />
 
+### 扩展_模拟多任务版文件上传服务器端
+
+
+
+
+
 
 
 ### 内容回顾
@@ -1705,33 +1711,41 @@ client_socket.close()
 
 ### 多任务
 
+
+
 <img src="Python进阶-img/image-20260409173028453.png" alt="image-20260409173028453" style="zoom:50%;" />
 
 <img src="Python进阶-img/image-20260409173233323.png" alt="image-20260409173233323" style="zoom:50%;" />
 
-> 并发:感觉是多任务
+> 并发:感觉是多任务(交替执行,**CPU快速切换**),
 >
 > 并行:真正是多任务
+>
+> 对于多个任务来讲是并发,对单个任务是并发
 
 <img src="Python进阶-img/image-20260409173406049.png" alt="image-20260409173406049" style="zoom:50%;" />
 
+> CPU切不过来了,就把你的游戏给干掉了
+
+<img src="Python进阶-img/image-20260409173858656.png" alt="image-20260409173858656" style="zoom:67%;" />
+
+> 单个CPU只能是并发
+>
+> 多核可以并行
+
+![image-20260409174038981](Python进阶-img/image-20260409174038981.png)
 
 
 
+![image-20260409174219570](Python进阶-img/image-20260409174219570.png)
 
+分配资源，进程
 
+调度资源，线程
 
-
-
-
-
-
-
-
-
-
-
-
+> 进程是分配资源的基本单位，线程是调度资源的基本单位
+>
+> 前面说错了，线程是cpu调度的最小单位
 
 ### 多进程
 
