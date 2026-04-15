@@ -2327,6 +2327,110 @@ daemon
 
 
 
+## python高级与正则表达式
+
+生成器，迭代器，property属性
+
+<img src="Python进阶-img/image-20260415173422838.png" alt="image-20260415173422838" style="zoom:33%;" />
+
+### 迭代器
+
+<img src="Python进阶-img/image-20260415173459093.png" alt="image-20260415173459093" style="zoom:33%;" />
+
+
+
+<img src="Python进阶-img/image-20260415173545725.png" alt="image-20260415173545725" style="zoom: 67%;" />
+
+> 包括有些函数传参,它上边是不是有一个参数叫它必须传一个iterable 类型,可迭代类型
+
+<img src="Python进阶-img/image-20260415173738146.png" alt="image-20260415173738146" style="zoom:67%;" />
+
+>  range是一次性加载到内存还是next
+>
+> 是后者
+
+![image-20260415191651348](Python进阶-img/image-20260415191651348.png)
+
+> 显式的实现俩方法，说白了就是重写
+
+<img src="Python进阶-img/image-20260415192056369.png" alt="image-20260415192056369" style="zoom: 50%;" />
+
+> raise理解为抛出异常,异常信息往控制台一打然后终止,有点像return,返回一个值,然后结束函数
+>
+> raise就是先给你一个异常,再把你的程序终止了,类似与java里面的throws(声明抛出异常)
+
+```py
+# __next__是用来获取下一个元素的
+```
+
+迭代器就是数据容器吗
+
+![image-20260415193105826](Python进阶-img/image-20260415193105826.png)
+
+```py
+"""
+演示自定义迭代器
+
+迭代器介绍:
+    概述:
+        自定义的类,只要重写了__iter__() 和 __next__()方法,就可以称为迭代器,[你随便写个类,你只要能把这俩写了,那你就是迭代器]
+    目的:
+        隐藏底层的逻辑,让用户使用更方便
+        惰性加载,用的时候才会获取.
+
+回顾:for循环格式
+    for i in 可迭代类型:
+        pass
+"""
+# 需求:模拟range(1,6),自定义 迭代器实现同等逻辑
+# 场景1:回顾 range()用法
+for i in range(1,6):
+    print(i)
+print('-'*23)
+
+# 场景2:自定义迭代器
+# 1.自定义 迭代器类
+class MyIterator:
+    # 2.通过init魔法方法,初始化属性,指定:范围
+    def __init__(self,start,end):
+        self.current_value= start       # 当前值,默认为 开始值
+        self.end=end                    # 结束值
+
+    # 3.重写iterator魔法方法,返回当前对象(即:迭代器对象).
+    def __iter__(self):
+        return self
+
+    # 4.重写next方法,返回当前值,并更新当前值
+    def __next__(self):
+        # 4.1判断当前值是否合法
+        if self.current_value >= self.end:
+            raise StopIteration
+        # 4.2走这里,说明当前值合法,返回当前值,并更新当前值
+        # value=self.current_value        # value =              1    2   3   4   5
+        # self.current_value+=1           # self.current_value = 2    3   4   5   6
+        # return value                    #                      1    2   3   4   5
+
+        # 效果同上,代码更简单
+        self.current_value+=1           # self.current_value = 2    3   4   5   6
+        return self.current_value-1     #                      1   2   3   4   5
+
+# 5.创建迭代器对象,并遍历
+for i in MyIterator(1,6):
+    print(i)
+
+# for i in 10:
+#     pass
+```
+
+![image-20260415194335495](Python进阶-img/image-20260415194335495.png)
+
+
+
+> 流数据:就是一个一个往外蹦过来的数据,就跟流水线一样的数据
+
+![image-20260415194719582](Python进阶-img/image-20260415194719582.png)
+
+> next(迭代器对象),next()函数的作用就是得到元素并指针向后移动一位
 
 
 
@@ -2334,14 +2438,195 @@ daemon
 
 
 
+### python生成器
+
+> 1 生成器的概念?如何使用?
+> 存储规则，用数据的时候现场生成
+>
+> ==数据不是一次性全部生成出来,而是要用的时候,根据规则去生成==
+>
+> 生成器是 根据一定规则生成数据的一种机制,每次调用生成器只生成一个值,可以节省大量内存
+
+> 生成器归根结底他的目的是就是减少内存空间,**节约内存**
+>
+> 数据不是一次性全部生成出来,而是使用一个,再生成一个,可以节约大量的内存
+
+> 生成器是简化的迭代器
+
+> 生成器就是买家具,那你用一个,我再给你生成一个,而生成器是用一个现生成一个
+>
+> 迭代器是我把规则放这,一堆的数据我都给你生成好了,你是不是用一个拿一个啊,不用不拿,但是数据还在
+
+<img src="Python进阶-img/image-20260415195813692.png" alt="image-20260415195813692" style="zoom:67%;" />
+
+> 列表,字典,集合推导式,还少元组推导式,元组推导式没有这个概念,你按照元组的格式写,它其实叫生成器
+
+![image-20260415200059629](Python进阶-img/image-20260415200059629.png)
+
+这个还是需要案例，不然太抽像了，事后还记不住
+
+<img src="Python进阶-img/image-20260415201102560.png" alt="image-20260415201102560" style="zoom:67%;" />
+
+<img src="Python进阶-img/image-20260415201141181.png" alt="image-20260415201141181" style="zoom:50%;" />
+
+> 那么如果换成小括号呢,按照我们的设想,是不是应该是元组,但是不,是对象
+
+![image-20260415201348404](Python进阶-img/image-20260415201348404.png)
+
+>  所以啊我想表达意思是没有元组推导式的概念,那你这样写,它其实本质是一个生成器
+
+![image-20260415201943846](Python进阶-img/image-20260415201943846.png)
+
+![image-20260415203653326](Python进阶-img/image-20260415203653326.png)
+
+#### 生成器的第二种写法,yield关键字
+
+<img src="Python进阶-img/image-20260415204805275.png" alt="image-20260415204805275" style="zoom:67%;" />
+
+```py
+# 写个函数，yield往这一标记就ok了
+
+# 需求:通过yield方式,获取到生成器之 1~10 之间的整数
+# 回顾:推导式写法
+my_g=(i for i in range(1,11))
+
+# yield方式如下
+# 1.定义函数,存储到生成器中,并返回
+def my_fun():
+    # my_list=[]                # 创建
+    # for i in range(1,11):
+    #     my_list.append(i)     # 添加
+    # return my_list            # 返回
+
+    # 效果类似于上边的代码
+    # yield在这里做了三件事:1.创建生成器对象 2.把数据保存到生成器对象中 3.返回生成器对象
+    for i in range(1,11):
+        yield i
+
+# 2.测试
+my_g2=my_fun()
+print(type(my_g2))      # <class 'generator'>
+
+print(next(my_g2))
+print(next(my_g2))
+print('-'*23)
+for i in my_g2:
+    print(i)
+```
 
 
 
 
 
+#### 生成器的应用场景，dataloader的封装
+
+![image-20260415204934186](Python进阶-img/image-20260415204934186.png)
 
 
 
+![image-20260415210646176](Python进阶-img/image-20260415210646176.png)
+
+这里其实并没有体现出生成器的特性，文件内容一次性全部加载出来了
+
+![image-20260415211708723](Python进阶-img/image-20260415211708723.png)
+
+
+
+>  两个索引分别是idx是生成器的索引，中括号里的切片是lines的索引，lines是个列表，装的是每一行的歌词,batch_size设置多少,那一个列表里面就有几行歌词作为一个元素
+
+这样写完全没有节省内存啊，还更占用内存了，readlines本来就是全部读进了内存，那后面再用生成器有啥意义？应该一行一行读出来然后放进列表，够8条就放进生成器然后清空
+
+<img src="Python进阶-img/image-20260415212902083.png" alt="image-20260415212902083" style="zoom:67%;" /> 
+
+
+
+![image-20260415213154802](Python进阶-img/image-20260415213154802.png)
+
+#### 上午内容回顾
+
+![image-20260415213516951](Python进阶-img/image-20260415213516951.png)
+
+> range底层咋做的,你不知道,但是呢我只会把我的这些批量的数据我提供给你,他是一次性生成所有的数据
+
+> 生成器的目的是减少内存占用,除此以外他跟迭代器是一样的,都是基于规则生成数据的
+
+> yield关键字作用
+>
+> 1.创建生成器对象
+>
+> 2.添加元素到生成器
+>
+> 3.返回
+
+![image-20260415214059167](Python进阶-img/image-20260415214059167.png)
+
+> 如果想要对迭代过程进行高度控制,用迭代器,否则就用生成器
+
+> Property属性
+
+![image-20260415214306363](Python进阶-img/image-20260415214306363.png)
+
+> 正则表达式 
+>
+> 正则:正确符合规则的字符串
+>
+> ^异或表示开头
+>
+> $刀乐表示结尾
+
+> 正则做判断是不是手机号,学规则,正则的作用就是:校验
+
+![image-20260415214743048](Python进阶-img/image-20260415214743048.png)
+
+### Property属性
+
+目的只有一个:
+
+<img src="Python进阶-img/image-20260415215106598.png" alt="image-20260415215106598" style="zoom: 50%;" />
+
+
+
+<img src="Python进阶-img/image-20260415215230426.png" alt="image-20260415215230426" style="zoom:67%;" />
+
+
+
+#### 装饰器方式
+
+<img src="Python进阶-img/image-20260415215332395.png" alt="image-20260415215332395" style="zoom: 50%;" />
+
+
+
+<img src="Python进阶-img/image-20260415220908727.png" alt="image-20260415220908727" style="zoom:67%;" />
+
+> 告诉你不能迭代
+
+![image-20260415221019888](Python进阶-img/image-20260415221019888.png)
+
+
+
+![image-20260415222722508](Python进阶-img/image-20260415222722508.png)
+
+get_age,set_age... 你这么折腾自己干啥?什么意思?
+
+@==获取值的函数名==.setter
+
+我能不能把get_age我就叫age
+
+<img src="Python进阶-img/image-20260415222113116.png" alt="image-20260415222113116" style="zoom:50%;" />
+
+> ==但是为了便于调用,实际开发中,私有的属性,我们提供的函数名,都是去掉私有后,你的名字直接写的==
+>
+> java的get\set方法
+
+<img src="Python进阶-img/image-20260415222854116.png" alt="image-20260415222854116" style="zoom:50%;" />
+
+> 这里就不标黄了
+
+<img src="Python进阶-img/image-20260415221429481.png" alt="image-20260415221429481" style="zoom:50%;" />
+
+> 本来就是想访问私有数值
+
+![image-20260415221524083](Python进阶-img/image-20260415221524083.png)
 
 
 
@@ -2371,7 +2656,7 @@ daemon
 
 ```py
 # 创建类对象
-对象名=类括号
+对象名=类()
 # 类外,设置属性,获取属性
 对象名.属性名="xxx"
 对象名.属性名
