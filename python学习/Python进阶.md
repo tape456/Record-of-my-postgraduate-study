@@ -2215,9 +2215,9 @@ daemon
 
 ![image-20260414220452541](Python进阶-img/image-20260414220452541.png)
 
-> 3.12的特性
+> 3.12的特性,总能保证有一个正确结果是2000000
 >
-> anaconda的ban'ben
+> anaconda的版本
 
 
 
