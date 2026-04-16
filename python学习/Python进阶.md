@@ -2628,6 +2628,138 @@ get_age,set_age... 你这么折腾自己干啥?什么意思?
 
 ![image-20260415221524083](Python进阶-img/image-20260415221524083.png)
 
+#### Property属性之类属性方式
+
+乌龟的屁股-龟腚
+
+> 类属性的意思就是：你需要做一层封装，什么封装呢？
+
+![image-20260416101844145](Python进阶-img/image-20260416101844145.png)
+
+> 给一个age属性,用property修饰,==把这两个函数(方法)当类属性来用==
+
+![image-20260416102627907](Python进阶-img/image-20260416102627907.png)
+
+> 两个名字不能一样
+
+> 刚刚是因为你的装饰器不一样,别人能够很好的区分,所以获取和设置值方法可以名字一样
+
+<img src="Python进阶-img/image-20260416102645206.png" alt="image-20260416102645206" style="zoom:67%;" />
+
+![image-20260416104223632](Python进阶-img/image-20260416104223632.png)
+
+![image-20260416104247069](Python进阶-img/image-20260416104247069.png)
+
+
+
+### 正则表达式
+
+在Java里边用的是regexp
+
+<img src="Python进阶-img/image-20260416104359825.png" alt="image-20260416104359825" style="zoom:67%;" />
+
+<img src="Python进阶-img/image-20260416105447523.png" alt="image-20260416105447523" style="zoom:50%;" />
+
+>  如果是封闭环境开发，可以用猫头鹰校验器,点个高亮,点个match,这边正常写规则,下边就会帮你匹配式子
+>
+> 匹配到的就会高亮
+>
+> 如果想要别的,也可以加加加
+
+<img src="Python进阶-img/image-20260416110112587.png" alt="image-20260416110112587" style="zoom:67%;" />
+
+> 好不能和 i 匹配
+
+<img src="Python进阶-img/image-20260416110316196.png" alt="image-20260416110316196" style="zoom:67%;" />
+
+![image-20260416110833310](Python进阶-img/image-20260416110833310.png)
+
+<img src="Python进阶-img/image-20260416112208045.png" alt="image-20260416112208045" style="zoom:50%;" />
+
+<img src="Python进阶-img/image-20260416112222219.png" alt="image-20260416112222219" style="zoom:50%;" />
+
+
+
+
+
+<img src="Python进阶-img/image-20260416112319706.png" alt="image-20260416112319706" style="zoom:67%;" />
+
+
+
+![image-20260416112809764](Python进阶-img/image-20260416112809764.png)
+
+![image-20260416112829347](Python进阶-img/image-20260416112829347.png)
+
+
+
+
+
+> r是取消路径的那个操作,取消转义
+
+
+
+<img src="Python进阶-img/image-20260416113207557.png" alt="image-20260416113207557" style="zoom:50%;" />
+
+> 先接收一个正则返回正则对象
+>
+> 由正则对象.sub在这里边替换
+>
+> compile返回的是一个正则对象
+
+```py
+"""
+演示正则替换
+
+回顾正则的使用步骤:
+    1. 导包
+    2. 正则匹配
+        result = re.match('正则表达式', '要校验的字符串')
+        result = re.search('正则表达式', '要校验的字符串')
+        result = re.compile('正则表达式').sub(替换后的内容,要被替换的字符串)       替换
+    3. 获取匹配结果.
+        result.group()
+"""
+import re
+
+# 1.定义字符串
+s='开心你就大声笑,哈哈,呵呵,嘿嘿,嘻嘻,桀桀桀,啦啦啦'
+
+# 2.把上述的 哈,呵,嘿,嘻,桀 替换为 ♥, | 代表或者的意思
+#                   正则规则         新字符串  要被替换的字符串
+result=re.compile('哈|呵|嘿|嘻|桀').sub('♥',s)
+
+# 3.打印结果
+print(result)
+print('-'*23)
+
+# 新版API的写法      compile就不需要了
+# 参1:正则规则,参2:新字符串,参3:要被替换的字符串
+result=re.sub('哈|呵|嘿|嘻|桀', '♣①', s)     # 各个公司都有自己的敏感词库
+print(result)
+```
+
+
+
+### 正则表达式编写
+
+<img src="Python进阶-img/image-20260416115307142.png" alt="image-20260416115307142" style="zoom:50%;" />
+
+
+
+![image-20260416115354580](Python进阶-img/image-20260416115354580.png)
+
+
+
+![image-20260416115430517](Python进阶-img/image-20260416115430517.png)
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2662,6 +2794,10 @@ get_age,set_age... 你这么折腾自己干啥?什么意思?
 对象名.属性名
 对象名.方法名()
 ```
+
+> 类属性可以通过对象名.的方式调用,也可以通过类名.的方式调用
+
+
 
 ## 🧠 为什么要加 `global` 声明？核心是「Python 的变量作用域规则」
 
