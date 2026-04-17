@@ -2742,6 +2742,8 @@ print(result)
 
 ### 正则表达式编写
 
+#### 单个字符
+
 <img src="Python进阶-img/image-20260416115307142.png" alt="image-20260416115307142" style="zoom:50%;" />
 
 
@@ -2750,25 +2752,203 @@ print(result)
 
 
 
-![image-20260416115430517](Python进阶-img/image-20260416115430517.png)
+<img src="Python进阶-img/image-20260416115430517.png" alt="image-20260416115430517" style="zoom: 67%;" />
+
+> 
+
+![image-20260416145858344](Python进阶-img/image-20260416145858344.png)
+
+> []代表括号中的任意一个就欧克
+
+<img src="Python进阶-img/image-20260416150030351.png" alt="image-20260416150030351" style="zoom:50%;" />
+
+
+
+<img src="Python进阶-img/image-20260416150228646.png" alt="image-20260416150228646" style="zoom:50%;" />
+
+
+
+<img src="Python进阶-img/image-20260416150311281.png" alt="image-20260416150311281" style="zoom:50%;" />
+
+
+
+![image-20260416150411545](Python进阶-img/image-20260416150411545.png)
+
+
+
+![image-20260416150446099](Python进阶-img/image-20260416150446099.png)
+
+
+
+![image-20260416150501146](Python进阶-img/image-20260416150501146.png)
+
+
+
+![image-20260416150909818](Python进阶-img/image-20260416150909818.png)
+
+
+
+#### 多个字符
+
+![image-20260416151238727](Python进阶-img/image-20260416151238727.png)
+
+> *不能单独出现
+
+![image-20260416151522108](Python进阶-img/image-20260416151522108.png)
+
+
+
+![image-20260416161036218](Python进阶-img/image-20260416161036218.png)
+
+
+
+<img src="Python进阶-img/image-20260416161126707.png" alt="image-20260416161126707" style="zoom:67%;" />
+
+
+
+![image-20260416161231707](Python进阶-img/image-20260416161231707.png)
+
+
+
+![image-20260416161313262](Python进阶-img/image-20260416161313262.png)
+
+
+
+![image-20260416161428889](Python进阶-img/image-20260416161428889.png)
+
+
+
+![image-20260416161838357](Python进阶-img/image-20260416161838357.png)
+
+
+
+#### 使用re模块匹配指定字符串开头或结尾
+
+![image-20260416171436198](Python进阶-img/image-20260416171436198.png)
+
+
+
+![image-20260416171455005](Python进阶-img/image-20260416171455005.png)
+
+![image-20260416205203818](Python进阶-img/image-20260416205203818.png)
+
+#### re模块提取分组数据
+
+##### |
+
+<img src="Python进阶-img/image-20260416205231632.png" alt="image-20260416205231632" style="zoom:67%;" />
+
+
+
+![image-20260416210012492](Python进阶-img/image-20260416210012492.png)
+
+
+
+![image-20260416210049855](Python进阶-img/image-20260416210049855.png)
+
+<img src="Python进阶-img/image-20260416210817029.png" alt="image-20260416210817029" style="zoom:67%;" />
+
+<img src="Python进阶-img/image-20260416211316803.png" alt="image-20260416211316803" style="zoom:50%;" />
+
+##### ()
+
+![image-20260416211337949](Python进阶-img/image-20260416211337949.png)
+
+![image-20260416211926579](Python进阶-img/image-20260416211926579.png)
+
+##### \num,单级的html
+
+![image-20260416214711871](Python进阶-img/image-20260416214711871.png)
+
+> 网页横线网上全都是head
+>
+> 往下都是body
+
+<img src="Python进阶-img/image-20260416212316509.png" alt="image-20260416212316509" style="zoom:67%;" />
+
+
+
+![image-20260416212401274](Python进阶-img/image-20260416212401274.png)
+
+
+
+![image-20260416213440515](Python进阶-img/image-20260416213440515.png)
+
+> 这个杠1并不是简单的让代码少些一点，还有一个特殊的功能
+
+![image-20260416213828771](Python进阶-img/image-20260416213828771.png)
+
+> \1引用第1组,要求要和第1组的内容一模一样,而不是遵循和分组1一样的正则规则就行
+>
+> ==就是第一组内容是啥，引用的内容就得是啥。 他开始搞错了以为是引用的规则。==
+
+![image-20260416214752437](Python进阶-img/image-20260416214752437.png)
+
+
+
+##### 扩展,多级的html
+
+
+
+![image-20260416215833845](Python进阶-img/image-20260416215833845.png)
+
+>  设置分组名 (?P==<==分组名==>==该组的re)  使用分组名==(?P=分组名)==
+
+![image-20260416215645500](Python进阶-img/image-20260416215645500.png)
+
+
+
+<img src="Python进阶-img/image-20260416215924824.png" alt="image-20260416215924824" style="zoom:67%;" />
+
+
+
+![image-20260416220045305](Python进阶-img/image-20260416220045305.png)
+
+```py
+import re
+
+# 1需求:在列表中["apple","banana","orange","pear"]，匹配apple和pear
+# list=["apple","banana","orange","pear"]
+#
+# for s in list:
+#     result=re.match('apple|pear',s)
+#     if result:
+#         print(f"我喜欢吃的水果:{result.group()}")
+#     else:
+#         print(f"我不喜欢吃的水果:{s}")
+
+# 2需求:匹配出163、126、qq等邮箱
+# email='abcd@163.com'
+# result=re.match('^[a-zA-Z_0-9]{4,}@(163|126|qq)\.com',email)
+# print(result.group())
+
+# 3需求:匹配qq:10567这样的数据，提取出来qq文字和qq号码
+# s="qq:10567"
+# result=re.match('(qq):(\d*)',s)
+# if result:
+#     print(f"qq={result.group(1)}")
+#     print(f"号码：{result.group(2)}")
+# else:
+#     print("匹配失败")
+# 4需求:匹配出<html>hh</html>
+html_s="<html>hh</html>"
+# result=re.match('<html>.*</html>',html_s)
+result=re.match(r'<(html)>.*</\1>',html_s)    # 出现了右斜杠(Windows的反骨)就要用r转义
+print(result.group())
+
+# 5需求:匹配出<html><h1>www.itcast.cn</h1></html>
+html_s="<html><h1>www.itcast.cn</h1></html>"
+result=re.match(r'<(?P<A>html)><(?P<B>h1)>.*</(?P=B)></(?P=A)>',html_s)
+print(result.group())
+```
 
 
 
 
 
+## 数据结构与算法
 
-
-
-
-
-
-
-
-
-
-
-
-
+...
 
 
 
