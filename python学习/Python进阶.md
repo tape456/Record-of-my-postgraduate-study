@@ -292,37 +292,152 @@ print(c1.number)
 
 ![image-20260421115233173](Python进阶-img/image-20260421115233173.png)
 
+```py
+"""
+例如，小明同学当前体重是100kg。每当他跑步一次时，则会减少0.5kg；
+每当他大吃大喝一次时，则会增加2kg。请试着采用面向对象方式完成案例。
 
+分析:
+    类名:           Student
+    对象名:         xm
+    属性(名词):     当前体重,current_weight
+    行为(动词):     跑步,吃饭
+"""
+# 1.定义学生类
+class Student:
+    # 2.在魔法方法init中，完成：对象的属性的初始化
+    def __init__(self):
+        self.current_weight = 100
 
+    # 3.每当他跑步一次时，则会减少0.5kg
+    def run(self):
+        print("疯狂跑步..减少0.5")
+        self.current_weight-=0.5    # 体重减小
 
+    # 4.大吃大喝
+    def eat(self):
+        print("大吃大喝...增加2")
+        self.current_weight+=2
 
+    # 5.重写魔法方法str,打印属性值,即:当前体重
+    def __str__(self):
+        # return "当前体重:%s" % self.current_weight
+        return f"当前体重:{self.current_weight}kg!"
 
+# 6.测试
+# 如果未来你的这个模块要被别人调,那你是不是要把测试代码 写到main里边
+if __name__ == '__main__':
+    # 6.1 创建对象
+    xm = Student()
 
+    # 6.2 跑步
+    xm.run()
+    xm.run()
+    # 6.3吃喝
+    xm.eat()
 
-
-
-
-
+    # 6.4当前体重
+    print(xm)
+```
 
 ### 烤地瓜案例
 
+> 分析类
+>
+> 属性和行为
+
+<img src="Python进阶-img/image-20260421171153826.png" alt="image-20260421171153826" style="zoom:67%;" />
 
 
 
+<img src="Python进阶-img/image-20260421171239175.png" alt="image-20260421171239175" style="zoom:67%;" />
 
 
 
+<img src="Python进阶-img/image-20260421171308353.png" alt="image-20260421171308353" style="zoom:67%;" />
 
 
 
+![image-20260421174607231](Python进阶-img/image-20260421174607231.png)
 
+```py
+"""
+案例:烤地瓜
 
+需求:
+    1.定义地瓜类 -> SweetPotato
+    2.属性:被烤时间cook_time,烘焙状态cook_state,调料 condiments
+    3.行为:烘烤cook(),添加调料 add_condiment()
+    4.魔法方法:init() -> 初始化属性, str() -> 打印地瓜信息
+    5.规则:
+        烘烤时间        地瓜状态
+        [0,3)           生的          包左不包右,前闭后开
+        [3,7)           半生不熟
+        [7,12)          熟了
+        [12,∞]            糊了
+"""
+# 1.定义地瓜类 -> SweetPotato
+class SweetPotato:
+    # 2.在魔法方法__init__()中,初始化地瓜的属性
+    # 那如果是从别的炉子拿过来呢，有参也行吧，设置一个默认值就行
+    def __init__(self):
+        self.cook_time = 0
+        self.cook_state = "生的"
+        self.condiments = []
+
+    # 3.具体的烘烤动作
+    def cook(self,time):
+        # 3.1根据烘烤时间,判断地瓜的 烘烤状态
+        if time<0:
+            print("无效值")
+        else:
+            # 3.2修改地瓜的 烘烤时间
+            self.cook_time += time
+            # 3.3根据烘烤时间,判断地瓜的 烘烤状态
+            if 0<=self.cook_time<3:
+                self.cook_state = "生的"
+            elif 3<=self.cook_time<7:
+                self.cook_state = "半生不熟"
+            elif 7<=self.cook_time<12:
+                self.cook_state = "熟了"
+            else:
+                self.cook_state = "糊了"
+    # 4.添加调料 add_condiment()
+    def add_condiment(self,condiment):
+        self.condiments.append(condiment)
+
+    # 5.重写str()方法,打印地瓜信息
+    def __str__(self):
+        return f"烘烤时间:{self.cook_time},烘烤状态:{self.cook_state},调料:{self.condiments}"
+
+# 6.测试
+if __name__ == '__main__':
+    # 7.创建地瓜对象
+    dg=SweetPotato()
+
+    # 8.具体的烘烤动作
+    # dg.cook(-3)
+    dg.cook(3)
+    dg.cook(5)
+    dg.cook(7)
+
+    # 9.添加调料
+    dg.add_condiment("芥末/辣根")
+    dg.add_condiment("鱼腥草,折耳根")
+    dg.add_condiment("豆汁")
+    dg.add_condiment("鲱鱼罐头")
+
+    # 10.打印地瓜状态
+    print(dg)
+```
 
 
 
 
 
 ## 定义类的三种格式p19
+
+多层继承
 
 ```py
 # 第一种(常用)
@@ -851,25 +966,218 @@ ts.make()   # 使用独创配方制作煎饼果子
 
 
 
+## 学生管理系统
+
+> 名词提取法,提取名词作为类
+>
+> CMS(Content Management System)
+
+<img src="Python进阶-img/image-20260421194214983.png" alt="image-20260421194214983" style="zoom:50%;" />
+
 ![image-20260405153931589](Python进阶-img/image-20260405153931589.png)
 
+> 3个py文件
 
+![image-20260421193330903](Python进阶-img/image-20260421193330903.png)
 
-
-
-
-
-
-
-
-
-## 学生管理系统
+> 
 
 ![image-20260408113833901](Python进阶-img/image-20260408113833901.png)
 
+> 
+
 ![image-20260408115017494](Python进阶-img/image-20260408115017494.png)
 
+> 
+
 ![image-20260408115042104](Python进阶-img/image-20260408115042104.png)
+
+> 学生管理系统面向对象版思路分析
+
+### 学生管理系统实践
+
+<img src="Python进阶-img/image-20260421194245894.png" alt="image-20260421194245894" style="zoom:67%;" />
+
+> 
+
+![image-20260421194350594](Python进阶-img/image-20260421194350594.png)
+
+```py
+"""
+该文件用于记录 学生类,学生的属性信息为:姓名,性别,年龄,手机号,描述信息
+
+"""
+# 1.定义学生类.
+class Student:
+    # 2.定义魔法方法,初始化属性信息
+    def __init__(self,name,gender,age,phone,desc):  # describe = desc描述信息
+        """
+        该魔法方法,用于初始化 属性信息
+        :param name:        学生姓名
+        :param gender:      性别
+        :param age:         年龄
+        :param phone:       手机号
+        :param desc:        描述信息
+        """
+        self.name= name
+        self.gender = gender
+        self.age = age
+        self.phone = phone
+        self.desc = desc
+
+    # 如果未来我想快速的打印这个对象的信息,还需要__str__
+    # 3.定义魔法方法,用于打印学生信息
+    def __str__(self):
+        """
+        该魔法方法,用于打印学生信息
+        :return:
+        """
+        return f"姓名: {self.name},性别: {self.gender},年龄: {self.age},手机号: {self.phone},描述信息: {self.desc}"
+
+# 4.测试(手机号不需要涉及到算数运算,所以就用字符串类型)
+# 在调用者中,不执行被调用者的测试代码
+if __name__ == '__main__':
+    s=Student('乔峰','男',18,'13112345678','丐帮帮主')
+    print(s)
+```
+
+
+
+![image-20260421200834796](Python进阶-img/image-20260421200834796.png)
+
+> 有个属性记录学生列表
+
+![image-20260421200921295](Python进阶-img/image-20260421200921295.png)
+
+
+
+![image-20260421200938741](Python进阶-img/image-20260421200938741.png)
+
+
+
+
+
+![image-20260421201003486](Python进阶-img/image-20260421201003486.png)
+
+
+
+![image-20260421201018144](Python进阶-img/image-20260421201018144.png)
+
+
+
+![image-20260421201034666](Python进阶-img/image-20260421201034666.png)
+
+
+
+![image-20260421203857479](Python进阶-img/image-20260421203857479.png)
+
+> 接下来把这好几个函数补齐就行了
+>
+> 那我刚才做的这个事，在公司中一般就是公司的架构师（项目经理），就是把整个项目的架构快速搭起来，然后就由程序员往里边摞代码
+
+![image-20260421204126344](Python进阶-img/image-20260421204126344.png)
+
+> 我们应该把你的测试代码,是不是应该放到另外一个文件,叫做main.py才合适
+
+
+
+==原来如此==
+
+<img src="Python进阶-img/image-20260421205211919.png" alt="image-20260421205211919" style="zoom:67%;" />
+
+> 你看你的学生这个对象,将来在管理里边被访问,管理里边他写的功能将来在主入口里边去访问,对于外界的用户来讲,他将来干的事情就是直接去访问你的main文件,那这样的话是不是作为程序的入口,去调你的管理文件,去调你的学生对象
+>
+> 所以呢我们将来的代码要写到main里边
+
+<img src="Python进阶-img/image-20260421205249502.png" alt="image-20260421205249502" style="zoom:50%;" />
+
+> 虽然main文件的流程和刚刚每个子模块的测试代码差不多相同,但是在实际开发中,你要单独的把它写到一个文件中才可以
+
+学生管理系统_入口文件
+
+如下的代码是写到**main.py**文件中的
+
+```py
+"""
+该文件 用作程序的入口文件.
+"""
+from studentcms import StudentCMS
+
+# 程序的主入口
+if __name__ == '__main__':
+    # 1.创建学生管理系统对象
+    stu_cms=StudentCMS()
+    # 2.启动程序即可
+    stu_cms.start()
+```
+
+
+
+### 13.学生管理系统_功能实现
+
+* 添加学生
+
+<img src="Python进阶-img/image-20260421210107159.png" alt="image-20260421210107159" style="zoom: 50%;" />
+
+
+
+让用户录入信息，我们接收封装往里边塞，就可以了
+
+```py
+# 4.定义函数,实现添加学生信息功能
+def add_student(self):
+    # 4.1提示用户输入学生信息,并接收
+    name = input("请输入学生姓名:")
+    gender = input("请输入学生性别:")
+    age = int(input("请输入学生年龄:"))    # 学生年龄是一个整数
+    phone = input("请输入学生手机号:")
+    desc=input("请输入学生描述信息:")
+    # 4.2把上述的信息封装成学生对象
+    stu=Student(name,gender,age,phone,desc)
+    # 4.3学生对象添加到列表中
+    self.stu_list.append(stu)
+    # 4.4提示
+    print(f'添加{name}学生信息成功!\n')
+```
+
+* 查看所有学生信息
+
+<img src="Python进阶-img/image-20260421212703279.png" alt="image-20260421212703279" style="zoom:50%;" />
+
+> 重写__str__,就可以直接打印,打印类对象就打印了我们重写好的那一堆类对象的属性
+
+```py
+# 8.定义函数,实现查询所有学生信息功能
+def search_all_student(self):
+    # 8.1判断列表长度是否为0，如果为0,提示用户暂无学生信息，请添加后查询
+    if len(self.stu_list)==0:
+        print("暂无学生信息，请添加后查询\n")
+    else:
+        # 8.2如果长度不为0 遍历列表，打印出所有的学生信息
+        for stu in self.stu_list:
+            print(stu)
+        print()     # 为了格式好看,在星星行上面加一行空行
+```
+
+* 删除学生的信息
+
+![image-20260421214526038](Python进阶-img/image-20260421214526038.png)
+
+```py
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
