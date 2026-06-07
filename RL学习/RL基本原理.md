@@ -2641,6 +2641,26 @@ TRPO 使用泰勒展开近似、共轭梯度、线性搜索等方法直接求解
 
 相比于它的先期工作，即确定性梯度算法（DPG），DDPG 加入了目标网络和软更新的方法，这对深度模型构建的价值网络和策略网络的稳定学习起到了关键的作用。DDPG 算法也被引入了多智能体强化学习领域，催生了 MADDPG 算法
 
+```py
+next_q_values = self.target_critic(next_states, self.target_actor(next_states))
+```
+
+![image-20260607183359854](RL基本原理-img/image-20260607183359854.png)
+
+
+
+### SAC算法
+
+
+
+
+
+
+
+
+
+
+
 
 
 
