@@ -247,3 +247,657 @@ ssh -L 18888:localhost:6006 litong@9.tcp.vip.cpolar.cn -p 13035
 
 
 
+# 复现记录
+
+## 一、环境准备（只需做一次）
+
+```bash
+# 进入项目目录
+cd /home/litong/LizhijunWorkspace/Meta-DT
+
+# 创建虚拟环境（如果还没创建）
+conda create -n meta_dt python=3.8 -y
+conda activate meta_dt
+
+# 安装依赖
+pip install -r requirements.txt
+# 注意：MuJoCo 已安装，环境变量已配好
+```
+
+## 二、数据收集（SAC 训练）—— 每个环境 × 所有任务
+
+### 2.1 AntDir（50 个任务，每批 5 个）
+
+```bash
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 0 --task_id_end 5❤️
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 5 --task_id_end 10❤️
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 10 --task_id_end 15❤️
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 15 --task_id_end 20❤️
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 20 --task_id_end 25❤️
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 25 --task_id_end 30❤️
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 40 --task_id_end 45❤️
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 45 --task_id_end 50❤️
+```
+
+### 2.2 HalfCheetahVel（50 个任务，每批 5 个）
+
+```bash
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 0 --task_id_end 5❤️
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 5 --task_id_end 10❤️
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 10 --task_id_end 15❤️
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 15 --task_id_end 20❤️
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 20 --task_id_end 25❤️
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 25 --task_id_end 30❤️
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 40 --task_id_end 45	#看环境代码 half_cheetah_vel.py：velocities = np.linspace(0.075, 3, 40)  # ← 只有 40 个！-----所以到上一行为止就跑完了
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 45 --task_id_end 50
+```
+
+### 2.3 HalfCheetahDir（4 个任务，只需跑一次）
+
+```bash
+python train_data_collection.py --env_type cheetah_dir --save_freq 4000 --task_id_start 0 --task_id_end 4❤️
+```
+
+### 2.4 Hopper（50 个任务，每批 5 个）
+
+```bash
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 0 --task_id_end 5❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 5 --task_id_end 10❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 10 --task_id_end 15❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 15 --task_id_end 20❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 20 --task_id_end 25❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 25 --task_id_end 30❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 40 --task_id_end 45❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 45 --task_id_end 50❤️
+```
+
+### 2.5 Walker（50 个任务，每批 5 个）
+
+```bash
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 0 --task_id_end 5❤️
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 5 --task_id_end 10❤️
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 10 --task_id_end 15❤️
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 15 --task_id_end 20❤️
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 20 --task_id_end 25❤️
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 25 --task_id_end 30❤️
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 40 --task_id_end 45❤️
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 45 --task_id_end 50❤️
+```
+
+### 2.6 PointRobot（50 个任务，每批 5 个）
+
+```bash
+python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 0 --task_id_end 5❤️
+python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 5 --task_id_end 10❤️
+python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 10 --task_id_end 15❤️
+python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 15 --task_id_end 20❤️
+python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 20 --task_id_end 25❤️
+python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 25 --task_id_end 30❤️
+python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
+python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
+python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 40 --task_id_end 45❤️
+python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 45 --task_id_end 50❤️
+```
+
+### 2.7 Reach（20 个任务，每批 5 个）
+
+```bash
+python train_data_collection.py --env_type reach --save_freq 4000 --task_id_start 0 --task_id_end 5❤️
+python train_data_collection.py --env_type reach --save_freq 4000 --task_id_start 5 --task_id_end 10
+python train_data_collection.py --env_type reach --save_freq 4000 --task_id_start 10 --task_id_end 15
+python train_data_collection.py --env_type reach --save_freq 4000 --task_id_start 15 --task_id_end 20
+```
+
+> **注意：** 你之前跑的 AntDir 的 task_0 和 task_1 已经跑完。上面其他环境和任务需要重新跑。
+
+------
+
+## 三、生成离线数据集（medium）—— 每个环境 × 所有任务
+
+### 3.1 AntDir（50 个任务，每批 5 个）
+
+Bash
+
+
+
+```bash
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 20 --task_id_end 25 --capacity 20000
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 25 --task_id_end 30 --capacity 20000
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 30 --task_id_end 35 --capacity 20000
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 35 --task_id_end 40 --capacity 20000
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 40 --task_id_end 45 --capacity 20000
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
+```
+
+### 3.2 HalfCheetahVel（50 个任务，每批 5 个）
+
+Bash
+
+
+
+```bash
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 20 --task_id_end 25 --capacity 20000
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 25 --task_id_end 30 --capacity 20000
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 30 --task_id_end 35 --capacity 20000
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 35 --task_id_end 40 --capacity 20000
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 40 --task_id_end 45 --capacity 20000
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
+```
+
+### 3.3 HalfCheetahDir（4 个任务，一次跑完）
+
+Bash
+
+
+
+```bash
+python get_datasets.py --env_type cheetah_dir --data_type medium --task_id_start 0 --task_id_end 4 --capacity 20000
+```
+
+### 3.4 Hopper（50 个任务，每批 5 个）
+
+Bash
+
+
+
+```bash
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 20 --task_id_end 25 --capacity 20000
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 25 --task_id_end 30 --capacity 20000
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 30 --task_id_end 35 --capacity 20000
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 35 --task_id_end 40 --capacity 20000
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 40 --task_id_end 45 --capacity 20000
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
+```
+
+### 3.5 Walker（50 个任务，每批 5 个）
+
+Bash
+
+
+
+```bash
+python get_datasets.py --env_type walker --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
+python get_datasets.py --env_type walker --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
+python get_datasets.py --env_type walker --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
+python get_datasets.py --env_type walker --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
+python get_datasets.py --env_type walker --data_type medium --task_id_start 20 --task_id_end 25 --capacity 20000
+python get_datasets.py --env_type walker --data_type medium --task_id_start 25 --task_id_end 30 --capacity 20000
+python get_datasets.py --env_type walker --data_type medium --task_id_start 30 --task_id_end 35 --capacity 20000
+python get_datasets.py --env_type walker --data_type medium --task_id_start 35 --task_id_end 40 --capacity 20000
+python get_datasets.py --env_type walker --data_type medium --task_id_start 40 --task_id_end 45 --capacity 20000
+python get_datasets.py --env_type walker --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
+```
+
+### 3.6 PointRobot（50 个任务，每批 5 个）
+
+Bash
+
+
+
+```bash
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 20 --task_id_end 25 --capacity 20000
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 25 --task_id_end 30 --capacity 20000
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 30 --task_id_end 35 --capacity 20000
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 35 --task_id_end 40 --capacity 20000
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 40 --task_id_end 45 --capacity 20000
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
+```
+
+### 3.7 Reach（20 个任务，每批 5 个）
+
+Bash
+
+
+
+```bash
+python get_datasets.py --env_type reach --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
+python get_datasets.py --env_type reach --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
+python get_datasets.py --env_type reach --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
+python get_datasets.py --env_type reach --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
+```
+
+------
+
+## 四、为每个环境生成 prompt 文件（作者没写这段，需要自己跑）
+
+**每个环境执行一次**（以 AntDir 为例，其他环境同理，只是把 task_id 的 5 改成对应环境的总任务数）：
+
+Bash
+
+
+
+```bash
+# AntDir（50 个 task，prompt_length=5）
+python << 'EOF'
+import pickle
+import numpy as np
+traj_len = 200
+for task_id in range(50):
+    with open(f'datasets/AntDir-v0/medium/dataset_task_{task_id}.pkl', 'rb') as f:
+        data = pickle.load(f)
+    trajectories = []
+    for i in range(100):  # 100 trajectories (20000 / 200)
+        s, e = i * traj_len, (i + 1) * traj_len
+        trajectories.append({
+            'observations': data['observations'][s:e],
+            'next_observations': data['next_observations'][s:e],
+            'actions': data['actions'][s:e],
+            'rewards': data['rewards'][s:e],
+        })
+    prompt = trajectories[:5]
+    with open(f'datasets/AntDir-v0/medium/dataset_task_prompt{task_id}.pkl', 'wb') as f:
+        pickle.dump(prompt, f)
+print('AntDir prompt files generated!')
+EOF
+
+# HalfCheetahVel（50 个 task，prompt_length=5）
+python << 'EOF'
+import pickle
+import numpy as np
+traj_len = 200
+for task_id in range(50):
+    with open(f'datasets/HalfCheetahVel-v0/medium/dataset_task_{task_id}.pkl', 'rb') as f:
+        data = pickle.load(f)
+    trajectories = []
+    for i in range(100):
+        s, e = i * traj_len, (i + 1) * traj_len
+        trajectories.append({
+            'observations': data['observations'][s:e],
+            'next_observations': data['next_observations'][s:e],
+            'actions': data['actions'][s:e],
+            'rewards': data['rewards'][s:e],
+        })
+    prompt = trajectories[:5]
+    with open(f'datasets/HalfCheetahVel-v0/medium/dataset_task_prompt{task_id}.pkl', 'wb') as f:
+        pickle.dump(prompt, f)
+print('HalfCheetahVel prompt files generated!')
+EOF
+
+# HalfCheetahDir（4 个 task，prompt_length=5）
+python << 'EOF'
+import pickle
+import numpy as np
+traj_len = 200
+for task_id in range(4):
+    with open(f'datasets/HalfCheetahDir-v0/medium/dataset_task_{task_id}.pkl', 'rb') as f:
+        data = pickle.load(f)
+    trajectories = []
+    for i in range(100):
+        s, e = i * traj_len, (i + 1) * traj_len
+        trajectories.append({
+            'observations': data['observations'][s:e],
+            'next_observations': data['next_observations'][s:e],
+            'actions': data['actions'][s:e],
+            'rewards': data['rewards'][s:e],
+        })
+    prompt = trajectories[:5]
+    with open(f'datasets/HalfCheetahDir-v0/medium/dataset_task_prompt{task_id}.pkl', 'wb') as f:
+        pickle.dump(prompt, f)
+print('HalfCheetahDir prompt files generated!')
+EOF
+
+# Hopper（50 个 task，prompt_length=3）
+python << 'EOF'
+import pickle
+import numpy as np
+traj_len = 200
+for task_id in range(50):
+    with open(f'datasets/HopperRandParams-v0/medium/dataset_task_{task_id}.pkl', 'rb') as f:
+        data = pickle.load(f)
+    trajectories = []
+    for i in range(100):
+        s, e = i * traj_len, (i + 1) * traj_len
+        trajectories.append({
+            'observations': data['observations'][s:e],
+            'next_observations': data['next_observations'][s:e],
+            'actions': data['actions'][s:e],
+            'rewards': data['rewards'][s:e],
+        })
+    prompt = trajectories[:3]
+    with open(f'datasets/HopperRandParams-v0/medium/dataset_task_prompt{task_id}.pkl', 'wb') as f:
+        pickle.dump(prompt, f)
+print('Hopper prompt files generated!')
+EOF
+
+# Walker（50 个 task，prompt_length=3）
+python << 'EOF'
+import pickle
+import numpy as np
+traj_len = 200
+for task_id in range(50):
+    with open(f'datasets/WalkerRandParams-v0/medium/dataset_task_{task_id}.pkl', 'rb') as f:
+        data = pickle.load(f)
+    trajectories = []
+    for i in range(100):
+        s, e = i * traj_len, (i + 1) * traj_len
+        trajectories.append({
+            'observations': data['observations'][s:e],
+            'next_observations': data['next_observations'][s:e],
+            'actions': data['actions'][s:e],
+            'rewards': data['rewards'][s:e],
+        })
+    prompt = trajectories[:3]
+    with open(f'datasets/WalkerRandParams-v0/medium/dataset_task_prompt{task_id}.pkl', 'wb') as f:
+        pickle.dump(prompt, f)
+print('Walker prompt files generated!')
+EOF
+
+# PointRobot（50 个 task，prompt_length=5）
+python << 'EOF'
+import pickle
+import numpy as np
+traj_len = 20
+for task_id in range(50):
+    with open(f'datasets/PointRobot-v0/medium/dataset_task_{task_id}.pkl', 'rb') as f:
+        data = pickle.load(f)
+    num_trajs = data['observations'].shape[0] // traj_len
+    trajectories = []
+    for i in range(num_trajs):
+        s, e = i * traj_len, (i + 1) * traj_len
+        trajectories.append({
+            'observations': data['observations'][s:e],
+            'next_observations': data['next_observations'][s:e],
+            'actions': data['actions'][s:e],
+            'rewards': data['rewards'][s:e],
+        })
+    prompt = trajectories[:5]
+    with open(f'datasets/PointRobot-v0/medium/dataset_task_prompt{task_id}.pkl', 'wb') as f:
+        pickle.dump(prompt, f)
+print('PointRobot prompt files generated!')
+EOF
+
+# Reach（20 个 task，prompt_length=5）
+python << 'EOF'
+import pickle
+import numpy as np
+traj_len = 500
+for task_id in range(20):
+    with open(f'datasets/Reach/medium/dataset_task_{task_id}.pkl', 'rb') as f:
+        data = pickle.load(f)
+    num_trajs = data['observations'].shape[0] // traj_len
+    trajectories = []
+    for i in range(num_trajs):
+        s, e = i * traj_len, (i + 1) * traj_len
+        trajectories.append({
+            'observations': data['observations'][s:e],
+            'next_observations': data['next_observations'][s:e],
+            'actions': data['actions'][s:e],
+            'rewards': data['rewards'][s:e],
+        })
+    prompt = trajectories[:5]
+    with open(f'datasets/Reach/medium/dataset_task_prompt{task_id}.pkl', 'wb') as f:
+        pickle.dump(prompt, f)
+print('Reach prompt files generated!')
+EOF
+```
+
+------
+
+## 五、合并 task_info 文件（每个环境一次）
+
+**每个环境执行一次**：
+
+Bash
+
+
+
+```bash
+# AntDir
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/AntDir-v0/medium'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'AntDir merged {len(all_info)} tasks')
+EOF
+
+# HalfCheetahVel
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/HalfCheetahVel-v0/medium'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'HalfCheetahVel merged {len(all_info)} tasks')
+EOF
+
+# HalfCheetahDir
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/HalfCheetahDir-v0/medium'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'HalfCheetahDir merged {len(all_info)} tasks')
+EOF
+
+# Hopper
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/HopperRandParams-v0/medium'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'Hopper merged {len(all_info)} tasks')
+EOF
+
+# Walker
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/WalkerRandParams-v0/medium'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'Walker merged {len(all_info)} tasks')
+EOF
+
+# PointRobot
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/PointRobot-v0/medium'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'PointRobot merged {len(all_info)} tasks')
+EOF
+
+# Reach
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/Reach/medium'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'Reach merged {len(all_info)} tasks')
+EOF
+```
+
+------
+
+## 六、训练上下文编码器（每个环境 1 条命令）
+
+Bash
+
+
+
+```bash
+# AntDir（601 epoch，45 train / 5 test）
+python train_context.py --env_name AntDir-v0
+
+# HalfCheetahVel（601 epoch，45 train / 5 test）
+python train_context.py --env_name HalfCheetahVel-v0
+
+# HalfCheetahDir（601 epoch，2 train / 2 test）
+python train_context.py --env_name HalfCheetahDir-v0
+
+# Hopper（201 epoch，45 train / 5 test）
+python train_context.py --env_name HopperRandParams-v0
+
+# Walker（201 epoch，45 train / 5 test）
+python train_context.py --env_name WalkerRandParams-v0
+
+# PointRobot（301 epoch，45 train / 5 test）
+python train_context.py --env_name PointRobot-v0
+
+# Reach（601 epoch，15 train / 5 test）
+python train_context.py --env_name Reach
+```
+
+------
+
+## 七、训练 Meta-DT（few-shot + zero-shot，每个环境 2 条命令）
+
+### Few-shot 设置（有 prompt）
+
+Bash
+
+
+
+```bash
+# AntDir
+python train_meta_dt.py --env_type ant_dir --env_name AntDir-v0 --zero_shot False --data_quality medium
+
+# HalfCheetahVel
+python train_meta_dt.py --env_type cheetah_vel --env_name HalfCheetahVel-v0 --zero_shot False --data_quality medium
+
+# HalfCheetahDir
+python train_meta_dt.py --env_type cheetah_dir --env_name HalfCheetahDir-v0 --zero_shot False --data_quality medium
+
+# Hopper
+python train_meta_dt.py --env_type hopper --env_name HopperRandParams-v0 --zero_shot False --data_quality medium
+
+# Walker
+python train_meta_dt.py --env_type walker --env_name WalkerRandParams-v0 --zero_shot False --data_quality medium
+
+# PointRobot
+python train_meta_dt.py --env_type point_robot --env_name PointRobot-v0 --zero_shot False --data_quality medium
+
+# Reach
+python train_meta_dt.py --env_type reach --env_name Reach --zero_shot False --data_quality medium
+```
+
+### Zero-shot 设置（无 prompt，纯靠上下文编码器）
+
+Bash
+
+
+
+```bash
+# AntDir
+python train_meta_dt.py --env_type ant_dir --env_name AntDir-v0 --zero_shot True --data_quality medium
+
+# HalfCheetahVel
+python train_meta_dt.py --env_type cheetah_vel --env_name HalfCheetahVel-v0 --zero_shot True --data_quality medium
+
+# HalfCheetahDir
+python train_meta_dt.py --env_type cheetah_dir --env_name HalfCheetahDir-v0 --zero_shot True --data_quality medium
+
+# Hopper
+python train_meta_dt.py --env_type hopper --env_name HopperRandParams-v0 --zero_shot True --data_quality medium
+
+# Walker
+python train_meta_dt.py --env_type walker --env_name WalkerRandParams-v0 --zero_shot True --data_quality medium
+
+# PointRobot
+python train_meta_dt.py --env_type point_robot --env_name PointRobot-v0 --zero_shot True --data_quality medium
+
+# Reach
+python train_meta_dt.py --env_type reach --env_name Reach --zero_shot True --data_quality medium
+```
+
+------
+
+## 八、查看训练结果
+
+Bash
+
+
+
+```bash
+# 启动 TensorBoard
+tensorboard --logdir runs/ --port 6006 --bind_all
+```
+
+然后在本机浏览器打开 `http://服 务器IP:6006` 查看各环境的训练曲线和评估回报。
+
+------
+
+## 各环境训练时间估算
+
+| 环境           | 数据收集（每个task） | 生成数据集（每批） | 上下文编码器 | Meta-DT（每个few-shot） |
+| :------------- | :------------------- | :----------------- | :----------- | :---------------------- |
+| AntDir         | ~30 分钟             | ~5 分钟            | ~50 分钟     | ~1.5 小时               |
+| HalfCheetahVel | ~30 分钟             | ~5 分钟            | ~50 分钟     | ~1 小时                 |
+| HalfCheetahDir | ~30 分钟             | ~5 分钟            | ~50 分钟     | ~1 小时                 |
+| Hopper         | ~30 分钟             | ~5 分钟            | ~20 分钟     | ~1 小时                 |
+| Walker         | ~30 分钟             | ~5 分钟            | ~20 分钟     | ~1 小时                 |
+| PointRobot     | ~5 分钟              | ~2 分钟            | ~30 分钟     | ~1 小时                 |
+| Reach          | ~20 分钟             | ~5 分钟            | ~50 分钟     | ~1.5 小时               |
+
+> 注意：数据收集部分非常耗时。**可以直接下载作者提供的数据集来跳过第一、二步**，从第三步开始。 作者预训练的上下文编码器（`context_models_best.pt`）也可以直接用，跳过第六步。
+
+------
+
+## 完整流程图
+
+Plain Text
+
+
+
+```
+train_data_collection.py  →  SAC checkpoints (agent_XXX.pt)
+       ↓
+get_datasets.py           →  离线数据集 (dataset_task_X.pkl + task_info.json)
+       ↓
+手动生成 prompt 文件      →  dataset_task_promptX.pkl
+       ↓
+train_context.py          →  context_models_best.pt (上下文编码器)
+       ↓
+train_meta_dt.py          →  Meta-DT 模型 + TensorBoard 日志 (runs/)
+```
