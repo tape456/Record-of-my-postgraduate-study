@@ -278,7 +278,7 @@ python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_st
 python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
 python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
 python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 40 --task_id_end 45❤️
-python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 45 --task_id_end 50❤️
+python train_data_collection.py --env_type ant_dir --save_freq 4000 --task_id_start 45 --task_id_end 50❤️❤️
 ```
 
 ### 2.2 HalfCheetahVel（50 个任务，每批 5 个）
@@ -291,7 +291,8 @@ python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_i
 python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 20 --task_id_end 25❤️
 python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 25 --task_id_end 30❤️
 python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
-python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
+python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 35 --task_id_end 40❤️❤️
+
 python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 40 --task_id_end 45	#看环境代码 half_cheetah_vel.py：velocities = np.linspace(0.075, 3, 40)  # ← 只有 40 个！-----所以到上一行为止就跑完了
 python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_id_start 45 --task_id_end 50
 ```
@@ -299,28 +300,43 @@ python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_i
 ### 2.3 HalfCheetahDir（4 个任务，只需跑一次）
 
 ```bash
-python train_data_collection.py --env_type cheetah_dir --save_freq 4000 --task_id_start 0 --task_id_end 4❤️
+python train_data_collection.py --env_type cheetah_dir --save_freq 4000 --task_id_start 0 --task_id_end 4❤️❤️
 ```
 
 ### 2.4 Hopper（50 个任务，每批 5 个）
 
 ```bash
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 0 --task_id_end 5❤️
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 0 --task_id_end 50💕
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 15 --task_id_end 20🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 20 --task_id_end 25🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 25 --task_id_end 30🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 30 --task_id_end 35🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 35 --task_id_end 40🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 40 --task_id_end 45🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 45 --task_id_end 50🙌
+
 python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 5 --task_id_end 10❤️
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 10 --task_id_end 15❤️
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 15 --task_id_end 20❤️
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 20 --task_id_end 25❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 10 --task_id_end 15💕
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 15 --task_id_end 20💕
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 20 --task_id_end 50❤️
 python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 25 --task_id_end 30❤️
 python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
 python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
 python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 40 --task_id_end 45❤️
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 45 --task_id_end 50❤️
+python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 45 --task_id_end 50❤️❤️
 ```
 
-### 2.5 Walker（50 个任务，每批 5 个）
+### 2.5 Walker（50 个任务，每批 5 个）🙌
 
 ```bash
-python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 0 --task_id_end 5❤️
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 15 --task_id_end 20
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 20 --task_id_end 25❤️
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 25 --task_id_end 30
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 30 --task_id_end 35
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 35 --task_id_end 40
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 40 --task_id_end 45
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 45 --task_id_end 50
+
 python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 5 --task_id_end 10❤️
 python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 10 --task_id_end 15❤️
 python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 15 --task_id_end 20❤️
@@ -329,95 +345,98 @@ python train_data_collection.py --env_type walker --save_freq 4000 --task_id_sta
 python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
 python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
 python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 40 --task_id_end 45❤️
-python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 45 --task_id_end 50❤️
+python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 45 --task_id_end 50❤️❤️
 ```
 
 ### 2.6 PointRobot（50 个任务，每批 5 个）
 
 ```bash
-python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 0 --task_id_end 5❤️
-python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 5 --task_id_end 10❤️
-python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 10 --task_id_end 15❤️
-python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 15 --task_id_end 20❤️
-python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 20 --task_id_end 25❤️
-python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 25 --task_id_end 30❤️
-python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
-python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
-python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 40 --task_id_end 45❤️
-python train_data_collection.py --env_type point_robot --save_freq 4000 --task_id_start 45 --task_id_end 50❤️
+python train_data_collection.py --env_type point_robot --task_id_start 0 --task_id_end 50❤️❤️
+
+python train_data_collection.py --env_type point_robot --save_freq 200 --task_id_start 5 --task_id_end 10❤️❤️
+python train_data_collection.py --env_type point_robot --save_freq 200 --task_id_start 10 --task_id_end 15❤️❤️
+python train_data_collection.py --env_type point_robot --save_freq 200 --task_id_start 15 --task_id_end 20❤️
+python train_data_collection.py --env_type point_robot --save_freq 200 --task_id_start 20 --task_id_end 25❤️
+python train_data_collection.py --env_type point_robot --save_freq 200 --task_id_start 25 --task_id_end 30❤️
+python train_data_collection.py --env_type point_robot --save_freq 200 --task_id_start 30 --task_id_end 35❤️
+python train_data_collection.py --env_type point_robot --save_freq 200 --task_id_start 35 --task_id_end 40❤️
+python train_data_collection.py --env_type point_robot --save_freq 200 --task_id_start 40 --task_id_end 45❤️
+python train_data_collection.py --env_type point_robot --save_freq 200 --task_id_start 45 --task_id_end 50❤️
 ```
 
 ### 2.7 Reach（20 个任务，每批 5 个）
 
 ```bash
-python train_data_collection.py --env_type reach --save_freq 4000 --task_id_start 0 --task_id_end 5❤️
-python train_data_collection.py --env_type reach --save_freq 4000 --task_id_start 5 --task_id_end 10
-python train_data_collection.py --env_type reach --save_freq 4000 --task_id_start 10 --task_id_end 15
-python train_data_collection.py --env_type reach --save_freq 4000 --task_id_start 15 --task_id_end 20
+python train_data_collection.py --env_type reach --num_steps 200000 --task_id_start 0 --task_id_end 20💕
+
+python train_data_collection.py --env_type reach --num_steps 200000 --save_freq 4000 --task_id_start 5 --task_id_end 20❤️
+# 也可以把任务按照每5个task分开跑
+python train_data_collection.py --env_type reach --save_freq 4000 --task_id_start 10 --task_id_end 15❤️
+python train_data_collection.py --env_type reach --save_freq 4000 --task_id_start 15 --task_id_end 20❤️
 ```
 
 > **注意：** 你之前跑的 AntDir 的 task_0 和 task_1 已经跑完。上面其他环境和任务需要重新跑。
 
 ------
 
+| 环境           | 你用的 | 作者用的  | 对不对 |
+| -------------- | :----: | :-------: | :----: |
+| AntDir         |  4000  | **4000**  |   ✅    |
+| HalfCheetahVel |  4000  |  不确定   | 待验证 |
+| **Hopper**     |  4000  | **10000** |   ❌    |
+| **Walker**     |  4000  | **10000** |   ❌    |
+| PointRobot     |  200   |  **40**   |   ❌    |
+
+| 环境            | 所有 suffix 的 GCD |                 作者可能的 save_freq                 |
+| --------------- | :----------------: | :--------------------------------------------------: |
+| PointRobot#     |        480         |          **40**（480÷40=12，和默认值吻合）           |
+| AntDir#         |       4,000        | **4000**（112000、128000、152000 不能被 10000 整除） |
+| HalfCheetahVel# |       60,000       |     4000 或 10000（只有一个值 60000，无法确定）      |
+| HalfCheetahDir# |       40,000       |                4000 或 10000（同上）                 |
+| Hopper🙌         |       10,000       |         **10000**（70000 不能被 4000 整除）          |
+| Walker🙌         |       10,000       |         **10000**（170000 不能被 4000 整除）         |
+| Reach#          |       1,000        |      **1000**（7000、6000 等不能被 4000 整除）       |
+
 ## 三、生成离线数据集（medium）—— 每个环境 × 所有任务
 
-### 3.1 AntDir（50 个任务，每批 5 个）
-
-Bash
-
-
+### 3.1 AntDir（50 个任务，每批 5 个）👌
 
 ```bash
-python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
-python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
-python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
-python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
-python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 20 --task_id_end 25 --capacity 20000
-python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 25 --task_id_end 30 --capacity 20000
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000❤️
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000❤️
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000❤️
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000❤️
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 20 --task_id_end 25 --capacity 20000❤️
+python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 25 --task_id_end 50 --capacity 20000
 python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 30 --task_id_end 35 --capacity 20000
 python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 35 --task_id_end 40 --capacity 20000
 python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 40 --task_id_end 45 --capacity 20000
 python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
 ```
 
-### 3.2 HalfCheetahVel（50 个任务，每批 5 个）
-
-Bash
-
-
+### 3.2 HalfCheetahVel（50 个任务，每批 5 个）👌
 
 ```bash
 python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
-python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
+python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 5 --task_id_end 40 --capacity 20000💕
 python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
 python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
 python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 20 --task_id_end 25 --capacity 20000
 python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 25 --task_id_end 30 --capacity 20000
 python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 30 --task_id_end 35 --capacity 20000
 python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 35 --task_id_end 40 --capacity 20000
-python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 40 --task_id_end 45 --capacity 20000
-python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
 ```
 
-### 3.3 HalfCheetahDir（4 个任务，一次跑完）
-
-Bash
-
-
+### 3.3 HalfCheetahDir（4 个任务，一次跑完）👌
 
 ```bash
-python get_datasets.py --env_type cheetah_dir --data_type medium --task_id_start 0 --task_id_end 4 --capacity 20000
+python get_datasets.py --env_type cheetah_dir --data_type medium --task_id_start 0 --task_id_end 4 --capacity 20000💕
 ```
 
-### 3.4 Hopper（50 个任务，每批 5 个）
-
-Bash
-
-
+### 3.4 Hopper（50 个任务，每批 5 个）🙌
 
 ```bash
-python get_datasets.py --env_type hopper --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
+python get_datasets.py --env_type hopper --data_type medium --task_id_start 0 --task_id_end 50 --capacity 20000💕🙌
 python get_datasets.py --env_type hopper --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
 python get_datasets.py --env_type hopper --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
 python get_datasets.py --env_type hopper --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
@@ -429,14 +448,10 @@ python get_datasets.py --env_type hopper --data_type medium --task_id_start 40 -
 python get_datasets.py --env_type hopper --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
 ```
 
-### 3.5 Walker（50 个任务，每批 5 个）
-
-Bash
-
-
+### 3.5 Walker（50 个任务，每批 5 个）🙌
 
 ```bash
-python get_datasets.py --env_type walker --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
+python get_datasets.py --env_type walker --data_type medium --task_id_start 0 --task_id_end 50 --capacity 20000💕
 python get_datasets.py --env_type walker --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
 python get_datasets.py --env_type walker --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
 python get_datasets.py --env_type walker --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
@@ -448,14 +463,10 @@ python get_datasets.py --env_type walker --data_type medium --task_id_start 40 -
 python get_datasets.py --env_type walker --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
 ```
 
-### 3.6 PointRobot（50 个任务，每批 5 个）
-
-Bash
-
-
+### 3.6 PointRobot（50 个任务，每批 5 个）👌
 
 ```bash
-python get_datasets.py --env_type point_robot --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
+python get_datasets.py --env_type point_robot --data_type medium --task_id_start 0 --task_id_end 50 --capacity 20000
 python get_datasets.py --env_type point_robot --data_type medium --task_id_start 5 --task_id_end 10 --capacity 20000
 python get_datasets.py --env_type point_robot --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
 python get_datasets.py --env_type point_robot --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
@@ -467,11 +478,7 @@ python get_datasets.py --env_type point_robot --data_type medium --task_id_start
 python get_datasets.py --env_type point_robot --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
 ```
 
-### 3.7 Reach（20 个任务，每批 5 个）
-
-Bash
-
-
+### 3.7 Reach（20 个任务，每批 5 个）👌
 
 ```bash
 python get_datasets.py --env_type reach --data_type medium --task_id_start 0 --task_id_end 5 --capacity 20000
@@ -482,13 +489,13 @@ python get_datasets.py --env_type reach --data_type medium --task_id_start 15 --
 
 ------
 
+
+
+
+
 ## 四、为每个环境生成 prompt 文件（作者没写这段，需要自己跑）
 
 **每个环境执行一次**（以 AntDir 为例，其他环境同理，只是把 task_id 的 5 改成对应环境的总任务数）：
-
-Bash
-
-
 
 ```bash
 # AntDir（50 个 task，prompt_length=5）
@@ -901,3 +908,24 @@ train_context.py          →  context_models_best.pt (上下文编码器)
        ↓
 train_meta_dt.py          →  Meta-DT 模型 + TensorBoard 日志 (runs/)
 ```
+
+
+
+
+
+
+
+# 作者使的绊子
+
+## 1.代码里的分支引用错误的config
+
+代码里的 bug。`cheetah_dir` 分支引用了错误的 config
+
+![image-20260623103330079](Meta-DT-img/image-20260623103330079.png)
+
+
+
+
+
+
+
