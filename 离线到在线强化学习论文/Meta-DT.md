@@ -303,35 +303,70 @@ python train_data_collection.py --env_type cheetah_vel --save_freq 4000 --task_i
 python train_data_collection.py --env_type cheetah_dir --save_freq 4000 --task_id_start 0 --task_id_end 4❤️❤️
 ```
 
-### 2.4 Hopper（50 个任务，每批 5 个）
+### 2.4 Hopper（50 个任务，每批 5 个）conda activate meta_dt
 
 ```bash
 python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 0 --task_id_end 50💕
 python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 15 --task_id_end 20🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 17 --task_id_end 18
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 18 --task_id_end 19
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 19 --task_id_end 20
+##############################conda activate meta_dt
 python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 20 --task_id_end 25🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 22 --task_id_end 23
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 23 --task_id_end 24
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 24 --task_id_end 25
+##############################conda activate meta_dt
 python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 25 --task_id_end 30🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 27 --task_id_end 28
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 28 --task_id_end 29
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 29 --task_id_end 30
+############################conda activate meta_dt
 python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 30 --task_id_end 35🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 32 --task_id_end 33
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 33 --task_id_end 34
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 34 --task_id_end 35
+########################################conda activate meta_dt
 python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 35 --task_id_end 40🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 37 --task_id_end 38
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 38 --task_id_end 39
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 39 --task_id_end 40
+#################################conda activate meta_dt
 python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 40 --task_id_end 45🙌
-python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 45 --task_id_end 50🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 42 --task_id_end 43
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 43 --task_id_end 44
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 44 --task_id_end 45
 
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 5 --task_id_end 10❤️
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 10 --task_id_end 15💕
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 15 --task_id_end 20💕
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 20 --task_id_end 50❤️
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 25 --task_id_end 30❤️
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 30 --task_id_end 35❤️
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 35 --task_id_end 40❤️
-python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 40 --task_id_end 45❤️
+###############conda activate meta_dt
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 45 --task_id_end 50🙌
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 47 --task_id_end 48
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 48 --task_id_end 49
+python train_data_collection.py --env_type hopper --save_freq 10000 --task_id_start 49 --task_id_end 50
+
 python train_data_collection.py --env_type hopper --save_freq 4000 --task_id_start 45 --task_id_end 50❤️❤️
 ```
 
-### 2.5 Walker（50 个任务，每批 5 个）🙌
+### 2.5 Walker（50 个任务，每批 5 个）🙌conda activate meta_dt
 
 ```bash
 python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 15 --task_id_end 20
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 17 --task_id_end 18
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 18 --task_id_end 19
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 19 --task_id_end 20
+
+#######################conda activate meta_dt
 python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 20 --task_id_end 25❤️
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 22 --task_id_end 23
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 23 --task_id_end 24
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 24 --task_id_end 25
+
+#####################conda activate meta_dt
 python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 25 --task_id_end 30
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 27 --task_id_end 28
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 28 --task_id_end 29
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 29 --task_id_end 30👎👎👎👎👎👎👎👎
+
+############################
 python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 30 --task_id_end 35
 python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 35 --task_id_end 40
 python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 40 --task_id_end 45
@@ -521,12 +556,12 @@ for task_id in range(50):
 print('AntDir prompt files generated!')
 EOF
 
-# HalfCheetahVel（50 个 task，prompt_length=5）
+# HalfCheetahVel（40 个 task，prompt_length=5）
 python << 'EOF'
 import pickle
 import numpy as np
 traj_len = 200
-for task_id in range(50):
+for task_id in range(40):
     with open(f'datasets/HalfCheetahVel-v0/medium/dataset_task_{task_id}.pkl', 'rb') as f:
         data = pickle.load(f)
     trajectories = []
@@ -667,10 +702,6 @@ EOF
 ## 五、合并 task_info 文件（每个环境一次）
 
 **每个环境执行一次**：
-
-Bash
-
-
 
 ```bash
 # AntDir
