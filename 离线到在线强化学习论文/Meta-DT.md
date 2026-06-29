@@ -364,14 +364,29 @@ python train_data_collection.py --env_type walker --save_freq 10000 --task_id_st
 python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 25 --task_id_end 30
 python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 27 --task_id_end 28
 python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 28 --task_id_end 29
-python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 29 --task_id_end 30👎👎👎👎👎👎👎👎
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 29 --task_id_end 30👍
 
-############################
+############################conda activate meta_dt
 python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 30 --task_id_end 35
-python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 35 --task_id_end 40
-python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 40 --task_id_end 45
-python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 45 --task_id_end 50
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 33 --task_id_end 34
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 34 --task_id_end 35
 
+#################conda activate meta_dt
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 35 --task_id_end 40
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 38 --task_id_end 39
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 39 --task_id_end 40
+
+####################conda activate meta_dt
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 40 --task_id_end 45
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 43 --task_id_end 44
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 44 --task_id_end 45
+
+#######################conda activate meta_dt
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 45 --task_id_end 50
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 48 --task_id_end 49
+python train_data_collection.py --env_type walker --save_freq 10000 --task_id_start 49 --task_id_end 50
+
+##########################
 python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 5 --task_id_end 10❤️
 python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 10 --task_id_end 15❤️
 python train_data_collection.py --env_type walker --save_freq 4000 --task_id_start 15 --task_id_end 20❤️
@@ -449,6 +464,21 @@ python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 40 
 python get_datasets.py --env_type ant_dir --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
 ```
 
+
+
+```bash
+# 以 AntDir 环境为例，生成 expert 数据集 
+python get_datasets.py --env_type ant_dir --data_type expert --task_id_start 0 --task_id_end 5 --capacity 20000 --suffix 200000
+python get_datasets.py --env_type ant_dir --data_type expert --task_id_start 5 --task_id_end 10 --capacity 20000 --suffix 200000❤️
+python get_datasets.py --env_type ant_dir --data_type expert --task_id_start 10 --task_id_end 15 --capacity 20000 --suffix 200000
+python get_datasets.py --env_type ant_dir --data_type expert --task_id_start 15 --task_id_end 20 --capacity 20000 --suffix 200000
+python get_datasets.py --env_type ant_dir --data_type expert --task_id_start 20 --task_id_end 25 --capacity 20000 --suffix 200000
+python get_datasets.py --env_type ant_dir --data_type expert --task_id_start 25 --task_id_end 30 --capacity 20000 --suffix 200000
+python get_datasets.py --env_type ant_dir --data_type expert --task_id_start 30 --task_id_end 50 --capacity 20000 --suffix 200000
+```
+
+
+
 ### 3.2 HalfCheetahVel（50 个任务，每批 5 个）👌
 
 ```bash
@@ -462,13 +492,27 @@ python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start
 python get_datasets.py --env_type cheetah_vel --data_type medium --task_id_start 35 --task_id_end 40 --capacity 20000
 ```
 
+
+
+```bash
+python get_datasets.py --env_type cheetah_vel --data_type expert --task_id_start 0 --task_id_end 40 --capacity 20000 --suffix 200000
+```
+
+
+
 ### 3.3 HalfCheetahDir（4 个任务，一次跑完）👌
 
 ```bash
 python get_datasets.py --env_type cheetah_dir --data_type medium --task_id_start 0 --task_id_end 4 --capacity 20000💕
 ```
 
-### 3.4 Hopper（50 个任务，每批 5 个）🙌
+
+
+```bash
+python get_datasets.py --env_type cheetah_dir --data_type expert --task_id_start 0 --task_id_end 4 --capacity 20000 --suffix 200000
+```
+
+### 3.4 Hopper（50 个任务，每批 5 个）👌
 
 ```bash
 python get_datasets.py --env_type hopper --data_type medium --task_id_start 0 --task_id_end 50 --capacity 20000💕🙌
@@ -483,7 +527,15 @@ python get_datasets.py --env_type hopper --data_type medium --task_id_start 40 -
 python get_datasets.py --env_type hopper --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
 ```
 
-### 3.5 Walker（50 个任务，每批 5 个）🙌
+
+
+```bash
+python get_datasets.py --env_type hopper --data_type expert --task_id_start 0 --task_id_end 50 --capacity 20000 --suffix 200000
+```
+
+
+
+### 3.5 Walker（50 个任务，每批 5 个）👌
 
 ```bash
 python get_datasets.py --env_type walker --data_type medium --task_id_start 0 --task_id_end 50 --capacity 20000💕
@@ -497,6 +549,14 @@ python get_datasets.py --env_type walker --data_type medium --task_id_start 35 -
 python get_datasets.py --env_type walker --data_type medium --task_id_start 40 --task_id_end 45 --capacity 20000
 python get_datasets.py --env_type walker --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
 ```
+
+
+
+```bash
+python get_datasets.py --env_type walker --data_type expert --task_id_start 0 --task_id_end 50 --capacity 20000 --suffix 200000
+```
+
+
 
 ### 3.6 PointRobot（50 个任务，每批 5 个）👌
 
@@ -513,6 +573,12 @@ python get_datasets.py --env_type point_robot --data_type medium --task_id_start
 python get_datasets.py --env_type point_robot --data_type medium --task_id_start 45 --task_id_end 50 --capacity 20000
 ```
 
+
+
+```bash
+python get_datasets.py --env_type point_robot --data_type expert --task_id_start 0 --task_id_end 50 --capacity 20000 --suffix 2000
+```
+
 ### 3.7 Reach（20 个任务，每批 5 个）👌
 
 ```bash
@@ -521,6 +587,14 @@ python get_datasets.py --env_type reach --data_type medium --task_id_start 5 --t
 python get_datasets.py --env_type reach --data_type medium --task_id_start 10 --task_id_end 15 --capacity 20000
 python get_datasets.py --env_type reach --data_type medium --task_id_start 15 --task_id_end 20 --capacity 20000
 ```
+
+
+
+```bash
+python get_datasets.py --env_type reach --data_type expert --task_id_start 0 --task_id_end 20 --capacity 20000 --suffix 200000
+```
+
+
 
 ------
 
@@ -697,6 +771,23 @@ print('Reach prompt files generated!')
 EOF
 ```
 
+
+
+```bash
+# 为 AntDir expert 数据生成 prompt 文件* 
+python generate_prompts.py --env_type ant_dir --data_type expert --num_tasks 50 --prompt_length 5 --num_prompts_per_task 3
+# 为其他环境生成 prompt 文件* 
+python generate_prompts.py --env_type walker --data_type expert --num_tasks 50 --prompt_length 5 --num_prompts_per_task 3 
+python generate_prompts.py --env_type hopper --data_type expert --num_tasks 50 --prompt_length 5 --num_prompts_per_task 3 
+python generate_prompts.py --env_type point_robot --data_type expert --num_tasks 50 --prompt_length 5 --num_prompts_per_task 3
+python generate_prompts.py --env_type cheetah_dir --data_type expert --num_tasks 4 --prompt_length 5 --num_prompts_per_task 3
+python generate_prompts.py --env_type cheetah_vel --data_type expert --num_tasks 40 --prompt_length 5 --num_prompts_per_task 3
+# 为 Reach expert 数据生成 prompt 文件
+python generate_prompts.py --env_type reach --data_type expert --num_tasks 20 --prompt_length 5 --num_prompts_per_task 3
+```
+
+
+
 ------
 
 ## 五、合并 task_info 文件（每个环境一次）
@@ -708,6 +799,18 @@ EOF
 python << 'EOF'
 import json, os, glob
 datasets_dir = 'datasets/AntDir-v0/medium'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'AntDir merged {len(all_info)} tasks')
+EOF
+# expert
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/AntDir-v0/expert'
 all_info = {}
 for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
     with open(f) as fp:
@@ -729,11 +832,35 @@ with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
     json.dump(all_info, fp, indent=4)
 print(f'HalfCheetahVel merged {len(all_info)} tasks')
 EOF
+# # expert
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/HalfCheetahVel-v0/expert'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'HalfCheetahVel merged {len(all_info)} tasks')
+EOF
 
 # HalfCheetahDir
 python << 'EOF'
 import json, os, glob
 datasets_dir = 'datasets/HalfCheetahDir-v0/medium'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'HalfCheetahDir merged {len(all_info)} tasks')
+EOF
+# # expert
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/HalfCheetahDir-v0/expert'
 all_info = {}
 for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
     with open(f) as fp:
@@ -755,11 +882,35 @@ with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
     json.dump(all_info, fp, indent=4)
 print(f'Hopper merged {len(all_info)} tasks')
 EOF
+# # expert
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/HopperRandParams-v0/expert'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'Hopper merged {len(all_info)} tasks')
+EOF
 
 # Walker
 python << 'EOF'
 import json, os, glob
 datasets_dir = 'datasets/WalkerRandParams-v0/medium'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'Walker merged {len(all_info)} tasks')
+EOF
+# # expert
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/WalkerRandParams-v0/expert'
 all_info = {}
 for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
     with open(f) as fp:
@@ -781,6 +932,18 @@ with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
     json.dump(all_info, fp, indent=4)
 print(f'PointRobot merged {len(all_info)} tasks')
 EOF
+# # expert
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/PointRobot-v0/expert'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'PointRobot merged {len(all_info)} tasks')
+EOF
 
 # Reach
 python << 'EOF'
@@ -794,37 +957,51 @@ with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
     json.dump(all_info, fp, indent=4)
 print(f'Reach merged {len(all_info)} tasks')
 EOF
+# # expert
+python << 'EOF'
+import json, os, glob
+datasets_dir = 'datasets/Reach/expert'
+all_info = {}
+for f in sorted(glob.glob(os.path.join(datasets_dir, 'task_info_*.json'))):
+    with open(f) as fp:
+        all_info.update(json.load(fp))
+with open(os.path.join(datasets_dir, 'task_info.json'), 'w') as fp:
+    json.dump(all_info, fp, indent=4)
+print(f'Reach merged {len(all_info)} tasks')
+EOF
 ```
 
 ------
 
-## 六、训练上下文编码器（每个环境 1 条命令）
-
-Bash
-
-
+## 六、训练上下文编码器（每个环境 1 条命令）👌
 
 ```bash
 # AntDir（601 epoch，45 train / 5 test）
 python train_context.py --env_name AntDir-v0
 
-# HalfCheetahVel（601 epoch，45 train / 5 test）
-python train_context.py --env_name HalfCheetahVel-v0
+# HalfCheetahVel（601 epoch，36 train / 4 test）但是这里有个问题：如果你只传 --env_name HalfCheetahVel-v0 而不传 --env_type，代码会使用默认的 env_type='ant_dir'，然后加载 args_ant_dir.py 配置，而不是 args_half_cheetah_vel.py！
+python train_context.py --env_name HalfCheetahVel-v0❌
+python train_context.py --env_type cheetah_vel --env_name HalfCheetahVel-v0
 
 # HalfCheetahDir（601 epoch，2 train / 2 test）
 python train_context.py --env_name HalfCheetahDir-v0
+python train_context.py --env_type cheetah_dir --env_name HalfCheetahDir-v0
 
 # Hopper（201 epoch，45 train / 5 test）
 python train_context.py --env_name HopperRandParams-v0
+python train_context.py --env_type hopper --env_name HopperRandParams-v0
 
 # Walker（201 epoch，45 train / 5 test）
 python train_context.py --env_name WalkerRandParams-v0
+python train_context.py --env_type walker --env_name WalkerRandParams-v0
 
-# PointRobot（301 epoch，45 train / 5 test）
+# PointRobot（301 epoch，45 train / 5 test）liu
 python train_context.py --env_name PointRobot-v0
+python train_context.py --env_type point_robot --env_name PointRobot-v0
 
-# Reach（601 epoch，15 train / 5 test）
+# Reach（601 epoch，15 train / 5 test）ba
 python train_context.py --env_name Reach
+python train_context.py --env_type reach
 ```
 
 ------
@@ -833,38 +1010,50 @@ python train_context.py --env_name Reach
 
 ### Few-shot 设置（有 prompt）
 
-Bash
-
-
-
 ```bash
 # AntDir
 python train_meta_dt.py --env_type ant_dir --env_name AntDir-v0 --zero_shot False --data_quality medium
+python train_meta_dt.py --env_type ant_dir --env_name AntDir-v0 --data_quality medium
 
 # HalfCheetahVel
 python train_meta_dt.py --env_type cheetah_vel --env_name HalfCheetahVel-v0 --zero_shot False --data_quality medium
+python train_meta_dt.py --env_type cheetah_vel --env_name HalfCheetahVel-v0 --data_quality medium
 
 # HalfCheetahDir
 python train_meta_dt.py --env_type cheetah_dir --env_name HalfCheetahDir-v0 --zero_shot False --data_quality medium
+python train_meta_dt.py --env_type cheetah_dir --env_name HalfCheetahDir-v0 --data_quality medium
 
 # Hopper
 python train_meta_dt.py --env_type hopper --env_name HopperRandParams-v0 --zero_shot False --data_quality medium
+python train_meta_dt.py --env_type hopper --env_name HopperRandParams-v0 --data_quality medium👎👎👎
 
 # Walker
 python train_meta_dt.py --env_type walker --env_name WalkerRandParams-v0 --zero_shot False --data_quality medium
+python train_meta_dt.py --env_type walker --env_name WalkerRandParams-v0 --data_quality medium
 
 # PointRobot
 python train_meta_dt.py --env_type point_robot --env_name PointRobot-v0 --zero_shot False --data_quality medium
+python train_meta_dt.py --env_type point_robot --env_name PointRobot-v0 --data_quality medium
 
 # Reach
 python train_meta_dt.py --env_type reach --env_name Reach --zero_shot False --data_quality medium
+因为 type=bool 在 argparse 里有坑。
+parser.add_argument("--zero_shot", type=bool, default=False)
+当你传 --zero_shot False 时，argparse 拿到的是字符串 "False"，然后用 bool("False") 转成布尔值。而 Python 里任何非空字符串都是 True：
+>>> bool("False")
+True
+>>> bool("True")
+True
+>>> bool("")
+False
+所以 args.zero_shot 实际存的是 True，于是结果目录就变成了 runs/Reach/True/...，你以为跑的是 few-shot，其实跑的是零样本。
+怎么传 False 才对？ 不传参数，用默认值，或者用 --zero_shot ""（空字符串）。
+最简单：直接不传 --zero_shot，用默认值 False：
+#################
+python train_meta_dt.py --env_type reach --env_name Reach --data_quality medium
 ```
 
 ### Zero-shot 设置（无 prompt，纯靠上下文编码器）
-
-Bash
-
-
 
 ```bash
 # AntDir
@@ -893,10 +1082,6 @@ python train_meta_dt.py --env_type reach --env_name Reach --zero_shot True --dat
 
 ## 八、查看训练结果
 
-Bash
-
-
-
 ```bash
 # 启动 TensorBoard
 tensorboard --logdir runs/ --port 6006 --bind_all
@@ -923,10 +1108,6 @@ tensorboard --logdir runs/ --port 6006 --bind_all
 ------
 
 ## 完整流程图
-
-Plain Text
-
-
 
 ```
 train_data_collection.py  →  SAC checkpoints (agent_XXX.pt)
@@ -959,4 +1140,181 @@ train_meta_dt.py          →  Meta-DT 模型 + TensorBoard 日志 (runs/)
 
 
 
+
+
+
+
+
+
+
+# expert
+
+明白了！既然你已经跑过 medium 数据集的流程，那么生成 expert 数据集就很简单了。你只需要：
+
+## 快速生成 Expert 数据集的步骤
+
+### 1. **检查各环境的最大可用 checkpoint**
+
+先确认每个环境实际可用的最大训练步数：
+
+```
+bash# PointRobot - 从之前的检查看到最大是2000
+ls datasets/PointRobot-v0/checkpoints/task_0/ | grep -oP 'agent_\K[0-9]+' | sort -n | tail -1
+
+# AntDir
+ls datasets/AntDir-v0/checkpoints/task_0/ | grep -oP 'agent_\K[0-9]+' | sort -n | tail -1
+
+# Walker
+ls datasets/WalkerRandParams-v0/checkpoints/task_0/ | grep -oP 'agent_\K[0-9]+' | sort -n | tail -1
+
+# Hopper
+ls datasets/HopperRandParams-v0/checkpoints/task_0/ | grep -oP 'agent_\K[0-9]+' | sort -n | tail -1
+
+# HalfCheetah-Vel
+ls datasets/HalfCheetahVel-v0/checkpoints/task_0/ | grep -oP 'agent_\K[0-9]+' | sort -n | tail -1
+
+# HalfCheetah-Dir
+ls datasets/HalfCheetahDir-v0/checkpoints/task_0/ | grep -oP 'agent_\K[0-9]+' | sort -n | tail -1
+```
+
+### 2. **生成 Expert 数据集**
+
+使用找到的最大 checkpoint 值（或者接近最大的值）来生成 expert 数据。以 AntDir 为例：
+
+```
+bash# 假设 AntDir 最大 checkpoint 是 160000
+for i in $(seq 0 5 45); do
+    python get_datasets.py \
+        --env_type ant_dir \
+        --data_type expert \
+        --task_id_start $i \
+        --task_id_end $((i+5)) \
+        --capacity 20000 \
+        --suffix 160000
+done
+```
+
+### 3. **合并 task_info 文件**
+
+生成完所有任务后，需要将所有 `task_info_*.json` 合并成一个 `task_info.json`。你可以用这个 Python 脚本：
+
+```
+pythonimport json
+import os
+from collections import OrderedDict
+
+# 设置路径
+env_name = "AntDir-v0"  # 根据你的环境修改
+data_type = "expert"
+base_path = f"./datasets/{env_name}/{data_type}"
+
+# 合并所有 task_info 文件
+merged_info = OrderedDict()
+task_info_files = sorted([f for f in os.listdir(base_path) if f.startswith('task_info_') and f.endswith('.json')])
+
+for filename in task_info_files:
+    filepath = os.path.join(base_path, filename)
+    with open(filepath, 'r') as f:
+        data = json.load(f)
+        merged_info.update(data)
+
+# 保存合并后的文件
+output_path = os.path.join(base_path, 'task_info.json')
+with open(output_path, 'w') as f:
+    json.dump(merged_info, f, indent=4)
+
+print(f"Merged {len(task_info_files)} files into {output_path}")
+print(f"Total tasks: {len(merged_info)}")
+```
+
+保存为 `merge_task_info.py`，然后运行：
+
+```
+bash
+
+python merge_task_info.py
+```
+
+记得根据你实际处理的环境修改 [env_name](javascript:void(0)) 变量。
+
+### 4. **验证数据集**
+
+```
+bash# 检查生成的文件
+ls -lh datasets/AntDir-v0/expert/ | head -20
+
+# 确认 task_info.json 已生成
+cat datasets/AntDir-v0/expert/task_info.json | python -m json.tool | head -30
+```
+
+### 5. **训练和测试 Meta-DT**
+
+生成完 expert 数据集后，就可以像之前跑 medium 一样运行实验了：
+
+```bash
+# 训练 Context Encoder（如果还没训练过）
+python train_context.py --env_name AntDir-v0
+# 训练 AntDir 的 expert Context Encoder
+python train_context.py \
+    --env_type ant_dir \
+    --env_name AntDir-v0 \
+    --data_quality expert
+    
+python train_context.py \
+    --env_type cheetah_vel \
+    --env_name HalfCheetahVel-v0 \
+    --data_quality expert
+    
+python train_context.py \
+    --env_type cheetah_dir \
+    --env_name HalfCheetahDir-v0 \
+    --data_quality expert
+    
+python train_context.py \
+    --env_type hopper \
+    --env_name HopperRandParams-v0 \
+    --data_quality expert
+    
+python train_context.py \
+    --env_type walker \
+    --env_name WalkerRandParams-v0 \
+    --data_quality expert
+    
+python train_context.py \
+    --env_type point_robot \
+    --env_name PointRobot-v0 \
+    --data_quality expert
+    
+python train_context.py \
+    --env_type reach \
+    --env_name Reach \
+    --data_quality expert
+    
+# Few-shot Meta-DT with expert data
+python train_meta_dt.py \
+    --env_type ant_dir \
+    --env_name AntDir-v0 \
+    #--zero_shot False \ # 这个不需要
+    --data_quality expert
+
+# Zero-shot Meta-DT with expert data
+python train_meta_dt.py \
+    --env_type ant_dir \
+    --env_name AntDir-v0 \
+    --zero_shot True \
+    --data_quality expert
+```
+
+## 关键点总结
+
+1. **Expert vs Medium 的唯一区别**：
+   - 使用更大的 `--suffix` 值（更晚的 checkpoint）
+   - 可能需要更大的 `--capacity`（更多数据）
+   - 其他流程完全一样
+2. **必须确保 checkpoint 存在**：
+   - 先用上面的命令检查实际可用的最大步数
+   - 不要使用不存在的 checkpoint
+3. **别忘了合并 task_info 文件**：
+   - 这是 medium 流程中可能已经做过的步骤
+   - expert 数据也需要同样的操作
 
