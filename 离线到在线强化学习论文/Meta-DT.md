@@ -1008,6 +1008,20 @@ python train_context.py --env_type reach
 
 ## 七、训练 Meta-DT（few-shot + zero-shot，每个环境 2 条命令）
 
+> ant_dir
+>
+> cheetah_vel
+>
+> cheetah_dir
+>
+> hopper
+>
+> point_robot
+>
+> reach
+>
+> walker👌
+
 ### Few-shot 设置（有 prompt）
 
 ```bash
@@ -1254,7 +1268,7 @@ cat datasets/AntDir-v0/expert/task_info.json | python -m json.tool | head -30
 ```bash
 # 训练 Context Encoder（如果还没训练过）
 python train_context.py --env_name AntDir-v0
-# 训练 AntDir 的 expert Context Encoder
+# 训练 AntDir 的 expert Context Encoder👍👍👍👍👍👍
 python train_context.py \
     --env_type ant_dir \
     --env_name AntDir-v0 \
@@ -1289,20 +1303,70 @@ python train_context.py \
     --env_type reach \
     --env_name Reach \
     --data_quality expert
-    
+👍👍👍👍👍👍👍
+##########################################
+
+# expert的	少样本	的Meta-DT的训练
 # Few-shot Meta-DT with expert data
 python train_meta_dt.py \
     --env_type ant_dir \
     --env_name AntDir-v0 \
+    --data_quality expert
     #--zero_shot False \ # 这个不需要
+
+# 
+python train_meta_dt.py \				
+    --env_type cheetah_vel \			
+    --env_name HalfCheetahVel-v0 \			
+    --data_quality expert				
+python train_meta_dt.py \
+    --env_type cheetah_vel \
+    --env_name HalfCheetahVel-v0 \
+    --data_quality expert \
+    --device cuda:0👍
+
+python train_meta_dt.py \
+    --env_type cheetah_dir \
+    --env_name HalfCheetahDir-v0 \
+    --data_quality expert \
+    --device cuda:1
+
+python train_meta_dt.py \
+    --env_type hopper \
+    --env_name HopperRandParams-v0 \
+    --data_quality expert 
+
+python train_meta_dt.py \
+    --env_type walker \
+    --env_name WalkerRandParams-v0 \
+    --data_quality expert
+    
+python train_meta_dt.py \
+    --env_type point_robot \
+    --env_name PointRobot-v0 \
     --data_quality expert
 
+python train_meta_dt.py \
+    --env_type reach \
+    --env_name Reach \
+    --data_quality expert
+
+# expert的零样本的Meta-DT的训练
 # Zero-shot Meta-DT with expert data
 python train_meta_dt.py \
     --env_type ant_dir \
     --env_name AntDir-v0 \
     --zero_shot True \
     --data_quality expert
+    
+python train_meta_dt.py \
+    --env_type cheetah_vel \
+    --env_name HalfCheetahVel-v0 \
+    --zero_shot True \
+    --data_quality expert👍
+    
+
+
 ```
 
 ## 关键点总结
