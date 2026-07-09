@@ -702,7 +702,84 @@ from 文件夹 import 某个具体的文件
 
 
 
+# Ollama
+
+一些要用到的指令：
+
+```bash
+sudo systemctl status ollama
+sudo systemctl start ollama
+```
+
+![image-20260701180928939](python基础-img/image-20260701180928939.png)
 
 
 
+![image-20260701180939341](python基础-img/image-20260701180939341.png)
+
+
+
+![image-20260701181017829](python基础-img/image-20260701181017829.png)
+
+
+
+![image-20260701181032748](python基础-img/image-20260701181032748.png)
+
+
+
+# Langchain
+
+
+
+![image-20260701181830683](python基础-img/image-20260701181830683.png)
+
+
+
+![image-20260701182052749](python基础-img/image-20260701182052749.png)
+
+
+
+![image-20260701182926625](python基础-img/image-20260701182926625.png)
+
+
+
+![image-20260701183041239](python基础-img/image-20260701183041239.png)
+
+
+
+![image-20260701183108777](python基础-img/image-20260701183108777.png)
+
+
+
+![image-20260701183157447](python基础-img/image-20260701183157447.png)
+
+
+
+![image-20260701190837923](python基础-img/image-20260701190837923.png)
+
+```bash
+pip install langchain -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install langchain-community -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install dashscope -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+
+
+![image-20260701194838412](python基础-img/image-20260701194838412.png)
+
+
+
+![image-20260701194846693](python基础-img/image-20260701194846693.png)
+
+
+
+
+
+![image-20260701200044801](python基础-img/image-20260701200044801.png)
+
+![image-20260701200116147](python基础-img/image-20260701200116147.png)
+
+
+
+![image-20260701200128312](python基础-img/image-20260701200128312.png)
 

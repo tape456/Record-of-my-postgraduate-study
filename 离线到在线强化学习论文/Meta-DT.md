@@ -1357,7 +1357,7 @@ python train_meta_dt.py \
     --env_type ant_dir \
     --env_name AntDir-v0 \
     --zero_shot True \
-    --data_quality expert
+    --data_quality expert👍
     
 python train_meta_dt.py \
     --env_type cheetah_vel \
@@ -1365,7 +1365,35 @@ python train_meta_dt.py \
     --zero_shot True \
     --data_quality expert👍
     
+python train_meta_dt.py \
+    --env_type cheetah_dir \
+    --env_name HalfCheetahDir-v0 \
+    --zero_shot True \
+    --data_quality expert👍
 
+python train_meta_dt.py \
+    --env_type hopper \
+    --env_name HopperRandParams-v0 \
+    --zero_shot True \
+    --data_quality expert👍
+
+python train_meta_dt.py \
+    --env_type walker \
+    --env_name WalkerRandParams-v0 \
+    --zero_shot True \
+    --data_quality expert👍
+    
+python train_meta_dt.py \
+    --env_type point_robot \
+    --env_name PointRobot-v0 \
+    --zero_shot True \
+    --data_quality expert👍
+
+python train_meta_dt.py \
+    --env_type reach \
+    --env_name Reach \
+    --zero_shot True \
+    --data_quality expert👍
 
 ```
 
